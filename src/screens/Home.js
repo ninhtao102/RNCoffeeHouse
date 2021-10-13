@@ -135,7 +135,7 @@ export default function Home() {
                             keyExtractor={item => item.id}
                             numColumns={2}
                             horizontal={false}
-                            style={{ marginBottom: 100 }}
+                            style={{ marginBottom: 10 }}
                             columnWrapperStyle={{ flex: 1, justifyContent: "space-around" }}
                         />
                     </View>
