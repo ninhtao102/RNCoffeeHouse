@@ -48,8 +48,9 @@ const styles = StyleSheet.create({
     },
     productItem: {
         flexDirection: 'row',
+        justifyContent: 'space-between',
         backgroundColor: '#FFF',
-        borderRadius: 16,
+        borderRadius: 8,
         paddingHorizontal: 16,
         paddingVertical: 16,
         marginHorizontal: 16,
@@ -57,16 +58,16 @@ const styles = StyleSheet.create({
     },
     title: {
         fontWeight: 'bold',
-        fontSize: 16,
+        color: '#000',
     },
     description: {
-        width: 220,
+        width: 200,
         fontSize: 13,
     },
     productsImages: {
         width: 80,
         height: 80,
-        borderRadius: 10,
+        borderRadius: 8,
     }
 })
 

@@ -76,7 +76,7 @@ export default function Home() {
     return (
         <SafeAreaView>
             <ScrollView>
-                <View>
+                <View style={{backgroundColor: '#EEE'}}>
                     <ImageBackground source={require('../images/backgroundContent.png')} resizeMode="repeat" style={{backgroundColor: '#e9d8a6',}}>
                     <View style={styles.codeUser}>
                         <TouchableOpacity>

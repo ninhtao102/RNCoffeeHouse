@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     location: {
         color: '#000',
         width: 200,
-        fontSize: 15,
+        fontSize: 16,
         marginBottom: 5,
     }
 })

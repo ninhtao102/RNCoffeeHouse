@@ -7,7 +7,7 @@ const storeLocationList = [
     {
         id: 1,
         photo: 'https://bloganchoi.com/wp-content/uploads/2019/12/ha-dong.jpg',
-        location: 'Chung cư Victoria Văn Phú Tòa V2 Khu đô thị Văn Phú',
+        location: 'Chung cư Victoria Văn Phú Tòa V2 Khu đô thị Văn Phú, Hà Đông, Hà Nội, Việt Nam',
         distance: 9.0
     },
     {
@@ -19,7 +19,7 @@ const storeLocationList = [
     {
         id: 3,
         photo: 'https://danviet.mediacdn.vn/2021/4/13/the-coffee-house-khong-nhuong-nguyen-1618324271848672760365-crop-1618324294521246672359.jpg',
-        location: 'Tầng 1 tòa CT5A thuộc dự án Văn Khê, Hà Đông, Hà Nội',
+        location: 'Tầng 1 tòa CT5A thuộc dự án Văn Khê, Hà Đông, Hà Nội, Việt Nam',
         distance: 10.7
     },
     {
@@ -31,7 +31,7 @@ const storeLocationList = [
     {
         id: 5,
         photo: 'https://hai.doimoisangtao.vn/wp-content/uploads/Kinhnghiemkinhdoanh.org-the-coffee-house-phat-trien-thuong-hieu-nho-vao-customer-insight-k7-1.jpg',
-        location: 'Số BT16B5-06 Làng Việt Kiều Châu Âu, Mỗ Lao, Hà Nội',
+        location: 'Số BT16B5-06 Làng Việt Kiều Châu Âu, Khu ĐTM Mỗ Lao, Hà Nội, Việt Nam',
         distance: 11.6
     },
     {
@@ -43,7 +43,7 @@ const storeLocationList = [
     {
         id: 7,
         photo: 'https://giaanjsc.com/wp-content/uploads/2020/10/thi-c%C3%B4ng-qu%C3%A1n-cafe-%C4%91%E1%BA%B9p-t%E1%BA%A1i-h%C3%A0-n%E1%BB%99i-6.jpg',
-        location: 'Chung cư Victoria Văn Phú Tòa V2 Khu đô thị Văn Phú',
+        location: 'Chung dân cư Hà Đông, Hà Nội, Việt Nam',
         distance: 12.8
     },
     {
@@ -63,7 +63,11 @@ const renderItem = ({ item }) => (
                 />
             <View style={styles.locationInfo}>
                 <Text style={styles.name}>the coffee house</Text>
-                <Text style={styles.location}>{item?.location}</Text>
+                <Text 
+                style={styles.location}
+                numberOfLines={2}
+                ellipsizeMode= 'tail'
+                >{item?.location}</Text>
                 <Text style={styles.distance}>Cách đây {item?.distance} km</Text>
             </View>
         </TouchableOpacity>
@@ -74,7 +78,7 @@ export default function StoreLocation() {
     return (
         <SafeAreaView>
             <ScrollView>
-                <View>
+                <View style={{backgroundColor: '#EEE'}}>
                     <View style={{backgroundColor: '#FFF', flexDirection: 'row',}}>
                         <View>
                             <Ionicons name="search-outline" size={20} color="#000" style={styles.icon} />
