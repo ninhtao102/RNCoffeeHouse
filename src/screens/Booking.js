@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, Image, ImageBackground, View, Text, TextInput, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
+import { FlatList, Image, View, Text, TextInput, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
 import styles from '../styles/BookingStyles'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
@@ -62,13 +62,13 @@ const productsList = [
     },
 ]
 
-const renderItem = ({ product }) => (
+const renderItem = ({ item }) => (
     <View>
-        <TouchableOpacity>
+        <TouchableOpacity style={styles.productItem}>
             <View>
                 <Text style={styles.title}>{item?.title}</Text>
                 <Text style={styles.description}>{item?.description}</Text>
-                <Text style={{marginHorizontal: 8}}>{item?.price}</Text>
+                <Text style={{marginTop: 8}}>{item?.price}</Text>
             </View>
             <Image
             style={styles.productsImages}
@@ -116,11 +116,8 @@ export default function Booking() {
                     <FlatList
                             data={productsList}
                             renderItem={renderItem}
-                            keyExtractor={product => product.id}
-                            // numColumns={2}
+                            keyExtractor={item => item.id}
                             horizontal={false}
-                            // style={{ marginBottom: 10 }}
-                            // columnWrapperStyle={{ flex: 1, justifyContent: "space-around" }}
                         />
                 </View>
             </ScrollView>
