@@ -12,10 +12,10 @@ export default function App() {
 
   return (
     <View>
-      {/* <Home/> */}
+      <Home/>
       {/* <Booking/> */}
       {/* <StoreLocation/> */}
-      <Voucher/>
+      {/* <Voucher/> */}
     </View>
   )
 }

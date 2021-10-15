@@ -41,7 +41,9 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
     content: {
-        backgroundColor: '#FFF', borderTopLeftRadius: 16, borderTopRightRadius: 16,
+        backgroundColor: '#FFF', 
+        borderTopLeftRadius: 16, 
+        borderTopRightRadius: 16,
         shadowColor: "#000",
         shadowOpacity: 1,
         elevation: 24,
@@ -49,15 +51,15 @@ const styles = StyleSheet.create({
     option: {
         borderWidth: 1,
         borderColor: '#CCC',
-        borderRadius: 20,
+        borderRadius: 8,
         marginHorizontal: 16,
         marginVertical: 16,
         flexDirection: 'row',
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
     },
     icon: {
         width: 80,
-        height: 80
+        height: 80,
     },
     txtOption: {
         color: '#000',
@@ -70,14 +72,17 @@ const styles = StyleSheet.create({
         borderRightWidth: 1,
         borderRightColor: '#CCC',
     },
-    bannerImage: {
-        width: 325,
-        height: 200, 
-        borderRadius: 20,
+    swipeBanner: {
         marginHorizontal: 16,
-        // shadowColor: "#000",
-        // shadowOpacity: 1,
-        // elevation: 24,
+        borderRadius: 8,
+        shadowColor: "#EEE",
+        shadowOpacity: 0.4,
+        elevation: 8,
+    },
+    bannerImage: {
+        borderRadius: 8,
+        width: '100%',
+        height: 200, 
     },
     titleDiscovery: {
         color: '#000',

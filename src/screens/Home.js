@@ -113,10 +113,12 @@ export default function Home() {
                                 <Text style={styles.txtOption}>Mang đi</Text>
                             </TouchableOpacity>
                         </View>
-                        <Image
+                        <View style={styles.swipeBanner}>
+                            <Image
                                 style={styles.bannerImage}
                                 source={require('../images/BANNER-HOME-APP-CA-PHE-TAI-NHA.jpg')}
                             />
+                        </View>
                         <Text style={styles.titleDiscovery}>Khám phá thêm </Text>
                         <View style={{flexDirection: 'row'}}>
                             <TouchableOpacity>
