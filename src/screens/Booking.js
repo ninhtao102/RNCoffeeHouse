@@ -85,7 +85,9 @@ const renderItem = ({ item }) => (
 export default function Booking() {
     return (
         <SafeAreaView>
-            <ScrollView>
+            <ScrollView
+            showsVerticalScrollIndicator={false}
+            >
                 <View style={{backgroundColor: '#EEE'}}>
                     <View style={[styles.headerBar, {paddingTop: 8}]}>
                         <Image

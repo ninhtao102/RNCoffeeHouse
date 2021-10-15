@@ -8,7 +8,9 @@ import styles from '../styles/VoucherStyles'
 export default function Voucher() {
     return (
         <SafeAreaView>
-            <ScrollView>
+            <ScrollView
+            showsVerticalScrollIndicator={false}
+            >
                 <View style={{backgroundColor: '#EEE'}}>
                     <View>
                         

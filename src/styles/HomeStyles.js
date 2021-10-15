@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
+
+const { WIDTH, HEIGHT } = Dimensions.get('window')
 
 const styles = StyleSheet.create({
     codeUser: {
@@ -84,6 +86,13 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 200, 
     },
+
+    wrap: {
+        width: WIDTH,
+        height: 250,
+        // height: HEIGHT*0.25,
+    },
+
     titleDiscovery: {
         color: '#000',
         fontWeight: 'bold',
@@ -91,14 +100,16 @@ const styles = StyleSheet.create({
         marginHorizontal: 16,
         marginVertical: 8,
     },
+    swipeBtnDiscovery: {
+        flexDirection: 'row', 
+        marginHorizontal: 16, 
+        marginVertical: 10,},
     btnDiscovery: {
-        marginVertical: 10,
-        marginLeft: 10,
-        padding: 8,
-        width: 120,
+        paddingHorizontal: 16,
+        paddingVertical: 8,
+        color: '#000',
         textAlign: 'center',
         fontWeight: 'bold',
-        
     },
     activeBtnDiscovery: {
         color: '#FF7900',

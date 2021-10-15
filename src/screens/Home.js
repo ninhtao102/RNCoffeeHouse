@@ -1,7 +1,17 @@
 import React from 'react'
-import { FlatList, Image, ImageBackground, View, Text, TouchableOpacity, SafeAreaView, ScrollView} from 'react-native'
+import { Dimensions, FlatList, Image, ImageBackground, View, Text, TouchableOpacity, SafeAreaView, ScrollView} from 'react-native'
 import styles from '../styles/HomeStyles'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+
+const { WIDTH, HEIGHT } = Dimensions.get('window')
+
+const swipeBanner = [
+    'https://feed.thecoffeehouse.com//content/images/2021/10/BANNER-APP.jpg',
+    'https://feed.thecoffeehouse.com//content/images/2021/10/1200x1200.png',
+    'https://feed.thecoffeehouse.com//content/images/2021/10/APP-NEWS-TUNGTANG.jpg',
+    'https://feed.thecoffeehouse.com//content/images/2021/10/APP-NEWS-khoi-dau.jpg',
+    'https://feed.thecoffeehouse.com//content/images/2021/10/02.jpg',
+]
 
 const bannerList = [
     {
@@ -13,7 +23,7 @@ const bannerList = [
     {
         id: 2,
         photo: 'https://feed.thecoffeehouse.com//content/images/2021/10/1200x1200.png',
-        title: 'cần món nước ngon, shoppee khao',
+        title: 'cần món nước ngon, nhà & shoppee khao ngay deal hot',
         date: 'Đến 11/10',
     },
     {
@@ -31,7 +41,7 @@ const bannerList = [
     {
         id: 5,
         photo: 'https://feed.thecoffeehouse.com//content/images/2021/10/02.jpg',
-        title: 'sản phầm mới: chai fresh - cho ngày dài',
+        title: 'sản phầm mới: chai fresh - cho ngày dài trọn vị',
         date: 'Đến 22/10',
     },
     {
@@ -43,7 +53,7 @@ const bannerList = [
     {
         id: 7,
         photo: 'https://feed.thecoffeehouse.com//content/images/2021/10/h-nh-m--b-n.jpg',
-        title: 'the coffee house có phiên bản mới',
+        title: 'the coffee house có phiên bản mới dành riêng cho tp.hcm',
         date: 'Đến 30/10',
     },
     {
@@ -54,6 +64,15 @@ const bannerList = [
     },
 ]
 
+const renderBanner = ({ item }) => (
+    <View>
+        <Image
+        style={styles.wrap}
+        source={{uri: item?.photo}}
+        />
+    </View>
+)
+
 const renderItem = ({ item }) => (
     <View>
         <TouchableOpacity>
@@ -62,7 +81,10 @@ const renderItem = ({ item }) => (
             source={{ uri: item?.photo }}
             />
             <View>
-                <Text style={styles.title}>{item?.title}</Text>
+                <Text 
+                numberOfLines={2}
+                ellipsizeMode= 'tail'
+                style={styles.title}>{item?.title}</Text>
                 <View style ={{flexDirection: 'row'}}>
                     <Ionicons name="calendar-outline" size={16} color="#000" />
                     <Text style={styles.date}>{item?.date}</Text>
@@ -73,10 +95,19 @@ const renderItem = ({ item }) => (
 );
 
 export default function Home() {
+
+    // onchange = (nativeEvent) => {
+
+    // }
+
     return (
         <SafeAreaView>
-            <ScrollView>
+            <ScrollView
+            showsVerticalScrollIndicator={false}
+            >
                 <View style={{backgroundColor: '#EEE'}}>
+
+                    {/* codeUser */}
                     <ImageBackground source={require('../images/backgroundContent.png')} resizeMode="repeat" style={{backgroundColor: '#e9d8a6',}}>
                     <View style={styles.codeUser}>
                         <TouchableOpacity>
@@ -96,6 +127,8 @@ export default function Home() {
                     </View>
 
                     <View style={styles.content}>
+
+                        {/* swipeBanner and optionBooking */}
                         <View style={styles.option}>
                             <TouchableOpacity>
                             <Image
@@ -119,18 +152,57 @@ export default function Home() {
                                 source={require('../images/BANNER-HOME-APP-CA-PHE-TAI-NHA.jpg')}
                             />
                         </View>
+
+                        {/* <FlatList
+                            data={bannerList}
+                            horizontal
+                            renderItem={renderBanner}
+                            style={styles.wrap}
+                            keyExtractor={item => item.id}
+                        /> */}
+
+                        {/* <View style={styles.wrap}>
+                            <ScrollView
+                            onScroll={({nativeEvent}) => onchange(nativeEvent)}
+                            showsHorizontalScrollIndicator={false}
+                            pagingEnabled
+                            horizontal
+                            style={styles.wrap}
+                            >
+                                {
+                                    swipeBanner.map((e, index) => 
+                                    <Image
+                                        key={e}
+                                        resizeMode='cover'
+                                        style={styles.wrap}
+                                        source={{uri :e}}
+                                    />
+                                    )
+                                }
+                            </ScrollView>
+                        </View> */}
+
+                        {/* advertisement */}
                         <Text style={styles.titleDiscovery}>Khám phá thêm </Text>
-                        <View style={{flexDirection: 'row'}}>
-                            <TouchableOpacity>
-                                <Text style={[styles.btnDiscovery, styles.activeBtnDiscovery]}>Ưu đãi đặc biệt</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity>
-                                <Text style={styles.btnDiscovery}>Cập nhật từ nhà</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity>
-                                <Text style={styles.btnDiscovery}>#CoffeeLover</Text>
-                            </TouchableOpacity>
-                        </View>
+                        <ScrollView 
+                        horizontal={true}
+                        showsHorizontalScrollIndicator={false}
+                        >
+                            <View style={styles.swipeBtnDiscovery}>
+                                <TouchableOpacity>
+                                    <Text style={[styles.btnDiscovery, styles.activeBtnDiscovery]}>Ưu đãi đặc biệt</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity>
+                                    <Text style={styles.btnDiscovery}>Cập nhật từ nhà</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity>
+                                    <Text style={styles.btnDiscovery}>#CoffeeLover</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity>
+                                    <Text style={styles.btnDiscovery}>Quà tặng từ nhà</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </ScrollView>
                         <FlatList
                             data={bannerList}
                             renderItem={renderItem}
@@ -142,6 +214,7 @@ export default function Home() {
                         />
                     </View>
                     </ImageBackground>
+
                 </View> 
             </ScrollView>
         </SafeAreaView>

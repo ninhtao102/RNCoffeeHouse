@@ -77,7 +77,9 @@ const renderItem = ({ item }) => (
 export default function StoreLocation() {
     return (
         <SafeAreaView>
-            <ScrollView>
+            <ScrollView
+            showsVerticalScrollIndicator={false}
+            >
                 <View style={{backgroundColor: '#EEE'}}>
                     <View style={{backgroundColor: '#FFF', flexDirection: 'row',}}>
                         <View>
