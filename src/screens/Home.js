@@ -217,6 +217,8 @@ export default function Home() {
 
                 </View> 
             </ScrollView>
+
+            
         </SafeAreaView>
     )
 }

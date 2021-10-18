@@ -4,6 +4,7 @@ import Booking from './src/screens/Booking'
 import Home from './src/screens/Home'
 import StoreLocation from './src/screens/StoreLocation'
 import Voucher from './src/screens/Voucher'
+import Account from './src/screens/Account'
 import reactotron from 'reactotron-react-native'
 
 export default function App() {
@@ -12,10 +13,11 @@ export default function App() {
 
   return (
     <View>
-      <Home/>
+      {/* <Home/> */}
       {/* <Booking/> */}
       {/* <StoreLocation/> */}
       {/* <Voucher/> */}
+      <Account/>
     </View>
   )
 }
