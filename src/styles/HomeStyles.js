@@ -3,45 +3,7 @@ import { StyleSheet, Dimensions } from 'react-native'
 const { WIDTH, HEIGHT } = Dimensions.get('window')
 
 const styles = StyleSheet.create({
-    codeUser: {
-        backgroundColor: '#ff9e00',
-        marginHorizontal: 16,
-        marginVertical: 16,
-        marginBottom: 100,
-        marginTop: 50,
-        paddingHorizontal: 8,
-        borderRadius: 20,
-    },
-    addPoint: {
-        width: 100,
-        padding: 8,
-        left: 200,
-        color: '#FFF',
-        backgroundColor: '#ff6d00',
-        borderWidth: 1,
-        borderTopWidth: 0,
-        borderColor: '#CCC',
-        borderBottomLeftRadius: 8,
-        borderBottomRightRadius: 8,
-        flexDirection: 'row',
-    },
-    codeInfo: {
-        color: '#FFF',
-        marginLeft: 8,
-    },
-    barcode: {
-        width: 220,
-        height: 40,
-        alignSelf: 'center',
-    },
-    code: {
-        backgroundColor: '#FFF',
-        height: 100,
-        padding: 16,
-        marginVertical: 16,
-        marginHorizontal: 8,
-        borderRadius: 10,
-    },
+    
     content: {
         backgroundColor: '#FFF', 
         borderTopLeftRadius: 16, 

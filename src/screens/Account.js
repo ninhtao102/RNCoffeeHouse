@@ -1,7 +1,10 @@
 import React from 'react'
-import { Image, View, Text, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
+import {Dimensions, Image, View, Text, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
 import styles from '../styles/AccountStyles'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 export default function Account() {
     return (
@@ -12,16 +15,16 @@ export default function Account() {
                     <Text style={styles.title}>Tiện ích</Text>
                     <View>
                         <View style={{flexDirection: 'row'}}>
-                            <TouchableOpacity style={[styles.btnGroup,styles.btnExt, {marginRight: 16}]}>
+                            <TouchableOpacity style={[styles.btnExt, {marginRight: 4, minWidth: 160}]}>
                                 <Image source={require('../images/icon_paper.png')} style={styles.imgExt} />
                                 <Text style={styles.extInfo}>Lịch sử đơn hàng</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={[styles.btnGroup,styles.btnExt]}>
+                            <TouchableOpacity style={[styles.btnExt, {marginLeft: 4, minWidth: 160}]}>
                                 <Image source={require('../images/icon_document.png')}  style={styles.imgExt} />
                                 <Text style={styles.extInfo}>Điều khoản</Text>
                             </TouchableOpacity>
                         </View>
-                        <TouchableOpacity style={[styles.btnGroup,styles.btnExt,{marginTop: 16}]}>
+                        <TouchableOpacity style={[styles.btnExt,{marginTop: 8}]}>
                             <Image source={require('../images/icon_music.png')}  style={styles.imgExt} />
                             <Text style={styles.extInfo}>Nhạc đang phát</Text>
                         </TouchableOpacity>

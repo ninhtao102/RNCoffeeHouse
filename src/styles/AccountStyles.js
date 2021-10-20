@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
         // width: 200
         padding: 16,
         backgroundColor: '#FFF',
+        borderRadius: 6,
     },
     extInfo: {
         marginTop: 8,

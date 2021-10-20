@@ -1,5 +1,7 @@
 import React from 'react'
 import { Dimensions, FlatList, Image, ImageBackground, View, Text, TouchableOpacity, SafeAreaView, ScrollView} from 'react-native'
+
+import CodeUsers from '../components/CodeUsers'
 import styles from '../styles/HomeStyles'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
@@ -109,22 +111,8 @@ export default function Home() {
 
                     {/* codeUser */}
                     <ImageBackground source={require('../images/backgroundContent.png')} resizeMode="repeat" style={{backgroundColor: '#e9d8a6',}}>
-                    <View style={styles.codeUser}>
-                        <TouchableOpacity>
-                            <ImageBackground source={require('../images/backgroundCodeUser.png')} resizeMode="contain">
-                            <View style={styles.addPoint}>
-                                <Ionicons name="chevron-down-outline" size={20} color="#FFF" />
-                                <Text style={{color: '#FFF'}}>Tích điểm</Text>
-                            </View>
-                            <Text style={[styles.codeInfo, {fontSize: 18, fontWeight: 'bold',}]}>Ninh Tào</Text>
-                            <Text style={[styles.codeInfo,{marginBottom: 24}]}>68 BEAN</Text>
-                            <View style={styles.code}>
-                                <Image source={require('../images/barcode.gif')} style={styles.barcode} />
-                                <Text style={{textAlign: 'center', margin: 10}}>M161514512</Text>
-                            </View>
-                            </ImageBackground>
-                        </TouchableOpacity>
-                    </View>
+
+                    <CodeUsers/>
 
                     <View style={styles.content}>
 

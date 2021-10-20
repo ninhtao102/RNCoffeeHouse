@@ -6,6 +6,8 @@ import StoreLocation from './src/screens/StoreLocation'
 import Voucher from './src/screens/Voucher'
 import Account from './src/screens/Account'
 import reactotron from 'reactotron-react-native'
+import ProductDetail from './src/screens/ProductDetail'
+import StoreLocationDetails from './src/screens/StoreLocationDetails'
 
 export default function App() {
 
@@ -15,9 +17,11 @@ export default function App() {
     <View>
       {/* <Home/> */}
       {/* <Booking/> */}
+      {/* <ProductDetail/> */}
       {/* <StoreLocation/> */}
+      <StoreLocationDetails/>
       {/* <Voucher/> */}
-      <Account/>
+      {/* <Account/> */}
     </View>
   )
 }
