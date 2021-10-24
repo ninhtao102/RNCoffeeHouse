@@ -54,27 +54,32 @@ const storeLocationList = [
     },
 ]
 
-const renderItem = ({ item }) => (
-    <View>
-        <TouchableOpacity style={styles.locationtItem}>
-            <Image
-                style={styles.locationImages}
-                source={{ uri: item?.photo }}
-                />
-            <View style={styles.locationInfo}>
-                <Text style={styles.name}>the coffee house</Text>
-                <Text 
-                style={styles.location}
-                numberOfLines={2}
-                ellipsizeMode= 'tail'
-                >{item?.location}</Text>
-                <Text style={styles.distance}>Cách đây {item?.distance} km</Text>
-            </View>
-        </TouchableOpacity>
-    </View>
-);
+export default function StoreLocation({navigation}) {
 
-export default function StoreLocation() {
+    const viewStore = () => navigation.navigate('StoreLocationDetails')
+
+    const renderItem = ({ item }) => (
+        <View>
+            <TouchableOpacity
+            onPress={viewStore}
+            style={styles.locationtItem}>
+                <Image
+                    style={styles.locationImages}
+                    source={{ uri: item?.photo }}
+                    />
+                <View style={styles.locationInfo}>
+                    <Text style={styles.name}>the coffee house</Text>
+                    <Text 
+                    style={styles.location}
+                    numberOfLines={2}
+                    ellipsizeMode= 'tail'
+                    >{item?.location}</Text>
+                    <Text style={styles.distance}>Cách đây {item?.distance} km</Text>
+                </View>
+            </TouchableOpacity>
+        </View>
+    );
+
     return (
         <SafeAreaView>
             <ScrollView

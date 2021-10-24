@@ -4,9 +4,8 @@ import { Image, View, Text, TextInput, TouchableOpacity, SafeAreaView, ScrollVie
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import styles from '../styles/ProductDetailStyles'
 
+export default function ProductDetail({navigation}) {
 
-
-export default function ProductDetail() {
     return (
         <SafeAreaView>
             <ScrollView>

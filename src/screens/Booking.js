@@ -62,33 +62,32 @@ const productsList = [
     },
 ]
 
-const renderItem = ({ item }) => (
-    
-    <View>
-        <TouchableOpacity 
-        
-        style={styles.productItem}
-        >
-            <View>
-                <Text style={styles.title}>{item?.title}</Text>
-                <Text 
-                style={styles.description}
-                numberOfLines={2}
-                ellipsizeMode= 'tail'
-                >{item?.description}</Text>
-                <Text style={{marginTop: 8, color: '#000'}}>{item?.price}</Text>
-            </View>
-            <Image
-            style={styles.productsImages}
-            source={{ uri: item?.photo }}
-            />
-        </TouchableOpacity>
-    </View>
-);
-
 export default function Booking({navigation}) {
 
-    const moveDetails = () => navigation.navigate('ProductDetail')
+    const viewDetails = () => navigation.navigate('ProductDetail')
+
+    const renderItem = ({ item }) => (
+        <View>
+            <TouchableOpacity 
+            onPress={viewDetails} 
+            style={styles.productItem}
+            >
+                <View>
+                    <Text style={styles.title}>{item?.title}</Text>
+                    <Text 
+                    style={styles.description}
+                    numberOfLines={2}
+                    ellipsizeMode= 'tail'
+                    >{item?.description}</Text>
+                    <Text style={{marginTop: 8, color: '#000'}}>{item?.price}</Text>
+                </View>
+                <Image
+                style={styles.productsImages}
+                source={{ uri: item?.photo }}
+                />
+            </TouchableOpacity>
+        </View>
+    );
 
     return (
         <SafeAreaView>
@@ -120,7 +119,7 @@ export default function Booking({navigation}) {
                         <TouchableOpacity style={styles.ionIcons}>
                             <Ionicons name="search-outline" size={20} color="#000" />
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={moveDetails} style={styles.ionIcons}>
+                        <TouchableOpacity style={styles.ionIcons}>
                             <Ionicons name="heart-outline" size={20} color="#000" />
                         </TouchableOpacity>
                     </View>

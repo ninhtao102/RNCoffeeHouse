@@ -12,12 +12,9 @@ import Booking from './src/screens/Booking'
 import StoreLocation from './src/screens/StoreLocation'
 import Voucher from './src/screens/Voucher'
 import Account from './src/screens/Account'
-import ProductDetail from './src/screens/ProductDetail'
-import StoreLocationDetails from './src/screens/StoreLocationDetails'
 
 export default function App() {
 
-  // const Stack = createNativeStackNavigator();
   const HomeStack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
 
@@ -44,8 +41,8 @@ export default function App() {
             iconName = focused ? 'home' : 'home-outline';
           } else if (route.name === 'Booking') {
             iconName = focused ? 'cafe' : 'cafe-outline';
-          } else if (route.name === 'StoreLocation') {
-            iconName = focused ? 'wine' : 'wine-outline';
+          } else if (route.name === 'Store') {
+            iconName = focused ? 'fast-food' : 'fast-food-outline';
           } else if (route.name === 'Voucher') {
             iconName = focused ? 'cash' : 'cash-outline';
           } else if (route.name === 'Account') {

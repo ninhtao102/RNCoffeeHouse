@@ -5,23 +5,8 @@ import CodeUsers from '../components/CodeUsers'
 import styles from '../styles/HomeStyles'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import BannerList from '../components/BannerList'
+import SwiperBanner from '../components/SwiperBanner'
 
-const swipeBanner = [
-    'https://feed.thecoffeehouse.com//content/images/2021/10/BANNER-APP.jpg',
-    'https://feed.thecoffeehouse.com//content/images/2021/10/1200x1200.png',
-    'https://feed.thecoffeehouse.com//content/images/2021/10/APP-NEWS-TUNGTANG.jpg',
-    'https://feed.thecoffeehouse.com//content/images/2021/10/APP-NEWS-khoi-dau.jpg',
-    'https://feed.thecoffeehouse.com//content/images/2021/10/02.jpg',
-]
-
-const renderBanner = ({ item }) => (
-    <View>
-        <Image
-        style={styles.wrap}
-        source={{uri: item?.photo}}
-        />
-    </View>
-)
 
 export default function Home({navigation}) {
 
@@ -67,41 +52,10 @@ export default function Home({navigation}) {
                                 <Text style={styles.txtOption}>Mang đi</Text>
                             </TouchableOpacity>
                         </View>
-                        <View style={styles.swipeBanner}>
-                            <Image
-                                style={styles.bannerImage}
-                                source={require('../images/BANNER-HOME-APP-CA-PHE-TAI-NHA.jpg')}
-                            />
+
+                        <View>
+                            <SwiperBanner/>
                         </View>
-
-                        {/* <FlatList
-                            data={bannerList}
-                            horizontal
-                            renderItem={renderBanner}
-                            style={styles.wrap}
-                            keyExtractor={item => item.id}
-                        /> */}
-
-                        {/* <View style={styles.wrap}>
-                            <ScrollView
-                            onScroll={({nativeEvent}) => onchange(nativeEvent)}
-                            showsHorizontalScrollIndicator={false}
-                            pagingEnabled
-                            horizontal
-                            style={styles.wrap}
-                            >
-                                {
-                                    swipeBanner.map((e, index) => 
-                                    <Image
-                                        key={e}
-                                        resizeMode='cover'
-                                        style={styles.wrap}
-                                        source={{uri :e}}
-                                    />
-                                    )
-                                }
-                            </ScrollView>
-                        </View> */}
 
                         {/* advertisement */}
                         <Text style={styles.titleDiscovery}>Khám phá thêm </Text>

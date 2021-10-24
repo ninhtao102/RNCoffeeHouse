@@ -38,19 +38,6 @@ const styles = StyleSheet.create({
         borderRightWidth: 1,
         borderRightColor: '#CCC',
     },
-    swipeBanner: {
-        marginHorizontal: 16,
-        borderRadius: 8,
-        shadowColor: "#EEE",
-        shadowOpacity: 0.4,
-        elevation: 8,
-    },
-    bannerImage: {
-        borderRadius: 8,
-        width: '100%',
-        height: 200, 
-    },
-
     titleDiscovery: {
         color: '#000',
         fontWeight: 'bold',
