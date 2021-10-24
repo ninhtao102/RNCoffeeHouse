@@ -63,8 +63,12 @@ const productsList = [
 ]
 
 const renderItem = ({ item }) => (
+    
     <View>
-        <TouchableOpacity style={styles.productItem}>
+        <TouchableOpacity 
+        
+        style={styles.productItem}
+        >
             <View>
                 <Text style={styles.title}>{item?.title}</Text>
                 <Text 
@@ -82,7 +86,10 @@ const renderItem = ({ item }) => (
     </View>
 );
 
-export default function Booking() {
+export default function Booking({navigation}) {
+
+    const moveDetails = () => navigation.navigate('ProductDetail')
+
     return (
         <SafeAreaView>
             <ScrollView
@@ -113,7 +120,7 @@ export default function Booking() {
                         <TouchableOpacity style={styles.ionIcons}>
                             <Ionicons name="search-outline" size={20} color="#000" />
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.ionIcons}>
+                        <TouchableOpacity onPress={moveDetails} style={styles.ionIcons}>
                             <Ionicons name="heart-outline" size={20} color="#000" />
                         </TouchableOpacity>
                     </View>

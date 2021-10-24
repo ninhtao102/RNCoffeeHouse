@@ -37,26 +37,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         borderRadius: 36,
     },
-    voucher: {
-        marginHorizontal: 16,
-        marginVertical: 4,
-        padding: 16,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        borderRadius: 8,
-        backgroundColor: '#FFF'
-    },
-    voucherInfo: {
-        marginHorizontal: 16,
-        fontSize: 16,
-        color: '#000', 
-        width: 180,
-    },
-    voucherImages: {
-        width: 100,
-        height: 100,
-        borderRadius: 4,
-    }
+    
 })
 
 export default styles;

@@ -1,9 +1,11 @@
-import { StyleSheet, Dimensions } from 'react-native'
-
-const { WIDTH, HEIGHT } = Dimensions.get('window')
+import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
-    
+    codeUsers: {
+        marginHorizontal: 16,
+        marginVertical: 16,
+        marginBottom: 64,
+    },
     content: {
         backgroundColor: '#FFF', 
         borderTopLeftRadius: 16, 
@@ -49,12 +51,6 @@ const styles = StyleSheet.create({
         height: 200, 
     },
 
-    wrap: {
-        width: WIDTH,
-        height: 250,
-        // height: HEIGHT*0.25,
-    },
-
     titleDiscovery: {
         color: '#000',
         fontWeight: 'bold',
@@ -65,7 +61,8 @@ const styles = StyleSheet.create({
     swipeBtnDiscovery: {
         flexDirection: 'row', 
         marginHorizontal: 16, 
-        marginVertical: 10,},
+        marginVertical: 10,
+    },
     btnDiscovery: {
         paddingHorizontal: 16,
         paddingVertical: 8,
@@ -78,22 +75,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#EEE',
         borderRadius: 20,
     },
-    banner: {
-        width: 150,
-        height: 150,
-        borderRadius: 8,
-    },
-    title: {
-        textTransform: 'uppercase',
-        fontWeight: 'bold',
-        marginVertical: 8,
-        color: '#000',
-        width: 150,
-    },
-    date: {
-        paddingLeft: 8,
-        marginBottom: 16,
-    }
+
 })
 
 export default styles;
