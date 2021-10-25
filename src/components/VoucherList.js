@@ -1,7 +1,9 @@
 import React from 'react'
-import { Image, FlatList, View, TouchableOpacity, Text, StyleSheet } from 'react-native'
+import { Dimensions, Image, FlatList, View, TouchableOpacity, Text, StyleSheet } from 'react-native'
 
-const vousherList = [
+const WIDTH = Dimensions.get('window').width;
+
+const voucherList = [
     {
         id: 1,
         photo: 'https://minio.thecoffeehouse.com/image/admin/storage/1159_m1t1-v1.jpg',
@@ -58,7 +60,7 @@ export default function VoucherList() {
     return (
         <View>
             <FlatList
-                data={vousherList}
+                data={voucherList}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}
                 horizontal={false}
@@ -75,6 +77,7 @@ const styles = StyleSheet.create({
         padding: 16,
         borderRadius: 16,
         flexDirection: 'row',
+        justifyContent: 'space-between',
         backgroundColor: '#FFF'
     },
     stylevoucher: {
@@ -90,11 +93,11 @@ const styles = StyleSheet.create({
         marginHorizontal: 16,
         fontSize: 16,
         color: '#000', 
-        width: 200,
+        width: WIDTH*0.55,
     },
     voucherImages: {
-        width: 80,
-        height: 80,
+        width: WIDTH*0.2,
+        height: WIDTH*0.2,
         borderRadius: 4,
     }
 })

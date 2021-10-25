@@ -1,6 +1,9 @@
 import React from 'react'
-import { Image, ImageBackground, View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { Dimensions, Image, ImageBackground, View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+
+const WIDTH = Dimensions.get('window').width;
+const HEIGHT = Dimensions.get('window').height;
 
 export default function CodeUsers() {
     return (
@@ -32,7 +35,7 @@ const styles = StyleSheet.create({
     addPoint: {
         padding: 8,
         width: 100,
-        left: 200,
+        left: WIDTH*0.6,
         color: '#FFF',
         backgroundColor: '#ff6d00',
         borderWidth: 1,

@@ -1,10 +1,11 @@
 import React from 'react'
-import { FlatList, Image, View, Text, TextInput, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
+import { View, Text, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
 
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import styles from '../styles/VoucherStyles'
 import CodeUsers from '../components/CodeUsers'
 import VoucherList from '../components/VoucherList'
+import EndowList from '../components/EndowList'
 
 export default function Voucher() {
     return (
@@ -40,7 +41,7 @@ export default function Voucher() {
                         </TouchableOpacity>
                     </View>
 
-                    <View style={{marginHorizontal: 16, flexDirection: 'row', justifyContent: 'space-between'}}>
+                    <View style={styles.content}>
                         <Text style={styles.titleContent}>Phiếu ưu đãi của bạn</Text>
                         <TouchableOpacity>
                             <Text  style={styles.btnMore}>Xem tất cả</Text>
@@ -51,13 +52,16 @@ export default function Voucher() {
                         <VoucherList/>
                     </View>
 
-                    <View style={{marginHorizontal: 16, marginVertical: 16, flexDirection: 'row', justifyContent: 'space-between'}}>
+                    <View style={styles.content}>
                         <Text style={styles.titleContent}>Đổi ưu đãi</Text>
                         <TouchableOpacity>
                             <Text  style={styles.btnMore}>Xem tất cả</Text>
                         </TouchableOpacity>
                     </View>
 
+                    <View>
+                        <EndowList/>
+                    </View>
 
                 </View>
             </ScrollView>

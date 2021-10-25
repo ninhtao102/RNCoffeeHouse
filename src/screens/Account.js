@@ -1,10 +1,9 @@
 import React from 'react'
-import {Dimensions, Image, View, Text, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
+import { Image, View, Text, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
+
 import styles from '../styles/AccountStyles'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-
-const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
+import Login from './Login';
 
 export default function Account() {
     return (
@@ -15,11 +14,11 @@ export default function Account() {
                     <Text style={styles.title}>Tiện ích</Text>
                     <View>
                         <View style={{flexDirection: 'row'}}>
-                            <TouchableOpacity style={[styles.btnExt, {marginRight: 4, minWidth: 160}]}>
+                            <TouchableOpacity style={[styles.btnExt, styles.ext, {marginRight: 4}]}>
                                 <Image source={require('../images/icon_paper.png')} style={styles.imgExt} />
                                 <Text style={styles.extInfo}>Lịch sử đơn hàng</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={[styles.btnExt, {marginLeft: 4, minWidth: 160}]}>
+                            <TouchableOpacity style={[styles.btnExt, styles.ext, {marginLeft: 4}]}>
                                 <Image source={require('../images/icon_document.png')}  style={styles.imgExt} />
                                 <Text style={styles.extInfo}>Điều khoản</Text>
                             </TouchableOpacity>
@@ -94,6 +93,11 @@ export default function Account() {
                     </View>
 
                 </View>
+
+                <View>
+                    <Login/>
+                </View>
+
             </ScrollView>
         </SafeAreaView>
     )

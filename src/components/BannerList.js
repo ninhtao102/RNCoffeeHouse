@@ -3,7 +3,8 @@ import { Dimensions, FlatList, Image, View, TouchableOpacity, Text, StyleSheet }
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const numColumns = 2
-const { WIDTH, HEIGHT } = Dimensions.get('window')
+const WIDTH = Dimensions.get('window').width;
+const HEIGHT = Dimensions.get('window').height;
 
 const bannerList = [
     {
@@ -59,10 +60,10 @@ const bannerList = [
 export default function BannerList() {
 
     const renderItem = ({ item }) => (
-        <View>
+        <View style={styles.banner} >
             <TouchableOpacity>
                 <Image
-                style={styles.banner}
+                style={styles.bannerImages}
                 source={{ uri: item?.photo }}
                 />
                 <View>
@@ -97,8 +98,13 @@ export default function BannerList() {
 
 const styles = StyleSheet.create({
     banner: {
-        width: 150,
-        height: 150,
+        paddingHorizontal: 16,
+        width: WIDTH*0.5,
+        
+    },
+    bannerImages: {
+        width: WIDTH*0.42,
+        height: WIDTH*0.42,
         borderRadius: 8,
     },
     title: {
@@ -106,7 +112,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginVertical: 8,
         color: '#000',
-        width: 150,
+        width: WIDTH*0.4,
     },
     date: {
         paddingLeft: 8,

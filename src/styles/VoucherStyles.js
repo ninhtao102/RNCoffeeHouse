@@ -1,4 +1,7 @@
-import { StyleSheet } from 'react-native'
+import { Dimensions, StyleSheet } from 'react-native'
+
+const WIDTH = Dimensions.get('window').width;
+
 
 const styles = StyleSheet.create({
     codeView: {
@@ -16,7 +19,7 @@ const styles = StyleSheet.create({
     btnItem: {
         margin: 4,
         padding: 16,
-        width: 160,
+        width: WIDTH*0.45,
         backgroundColor: '#FFF',
         borderRadius: 8,
     },
@@ -24,6 +27,11 @@ const styles = StyleSheet.create({
         marginTop: 8,
         color: '#000',
         fontWeight: 'bold',
+    },
+    content: {
+        marginHorizontal: 16, 
+        flexDirection: 'row', 
+        justifyContent: 'space-between',
     },
     titleContent: {
         color: '#000',

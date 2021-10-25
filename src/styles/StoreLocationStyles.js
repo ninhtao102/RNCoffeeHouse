@@ -1,10 +1,12 @@
-import { StyleSheet } from 'react-native'
+import { Dimensions, StyleSheet } from 'react-native'
+
+const WIDTH = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
     input: {
         backgroundColor: '#EEE',
         marginHorizontal: 16,
-        width: 240,
+        width: WIDTH*0.7,
         height: 40,
         borderRadius: 10,
         paddingLeft: 42,
@@ -58,7 +60,7 @@ const styles = StyleSheet.create({
     },
     location: {
         color: '#000',
-        width: 200,
+        width: WIDTH*0.6,
         fontSize: 16,
         marginBottom: 5,
     }

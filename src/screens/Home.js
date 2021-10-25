@@ -1,10 +1,9 @@
 import React from 'react'
-import { Dimensions, FlatList, Image, ImageBackground, View, Text, TouchableOpacity, SafeAreaView, ScrollView} from 'react-native'
-
-import CodeUsers from '../components/CodeUsers'
+import { Image, ImageBackground, View, Text, TouchableOpacity, SafeAreaView, ScrollView} from 'react-native'
 import styles from '../styles/HomeStyles'
-import Ionicons from 'react-native-vector-icons/Ionicons'
+
 import BannerList from '../components/BannerList'
+import CodeUsers from '../components/CodeUsers'
 import SwiperBanner from '../components/SwiperBanner'
 
 

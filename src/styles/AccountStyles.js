@@ -1,4 +1,7 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from 'react-native'
+
+const WIDTH = Dimensions.get('window').width;
+
 
 const styles = StyleSheet.create({
     container: {
@@ -12,9 +15,10 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#000'
     },
-
+    ext: {
+        width: WIDTH*0.455,
+    },
     btnExt: {
-        // width: 200
         padding: 16,
         backgroundColor: '#FFF',
         borderRadius: 6,

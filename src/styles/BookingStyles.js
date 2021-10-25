@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { Dimensions, StyleSheet } from 'react-native'
+
+const WIDTH = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
     headerBar: {
@@ -16,8 +18,11 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         paddingTop: 2,
     },
+    shipping: {
+        width: WIDTH*0.75,
+    },
     input: {
-        width: 190,
+        width: WIDTH*0.6,
         height: 40,
         paddingLeft: 16,
         backgroundColor: '#EEE',
@@ -46,29 +51,6 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold'
     },
-    productItem: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        backgroundColor: '#FFF',
-        borderRadius: 8,
-        paddingHorizontal: 16,
-        paddingVertical: 16,
-        marginHorizontal: 16,
-        marginBottom: 16,
-    },
-    title: {
-        fontWeight: 'bold',
-        color: '#000',
-    },
-    description: {
-        width: 200,
-        fontSize: 13,
-    },
-    productsImages: {
-        width: 80,
-        height: 80,
-        borderRadius: 8,
-    }
 })
 
 export default styles;
