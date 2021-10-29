@@ -51,6 +51,29 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold'
     },
+    productItem: {
+        marginHorizontal: 16,
+        marginBottom: 16,
+        paddingHorizontal: 16,
+        paddingVertical: 16,
+        backgroundColor: '#FFF',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        borderRadius: 8,
+    },
+    title: {
+        fontWeight: 'bold',
+        color: '#000',
+    },
+    description: {
+        width: WIDTH*0.6,
+        fontSize: 13,
+    },
+    productsImages: {
+        width: WIDTH*0.2,
+        height: WIDTH*0.2,
+        borderRadius: 8,
+    }
 })
 
 export default styles;

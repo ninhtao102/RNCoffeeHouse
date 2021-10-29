@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     locationImages: {
         width: 80,
         height: 80,
-        borderRadius: 10,
+        borderRadius: 8,
     },
     locationInfo: {
         marginHorizontal: 16,

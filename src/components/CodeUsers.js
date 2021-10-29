@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     addPoint: {
         padding: 8,
         width: 100,
-        left: WIDTH*0.6,
+        left: WIDTH*0.64,
         color: '#FFF',
         backgroundColor: '#ff6d00',
         borderWidth: 1,

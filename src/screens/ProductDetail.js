@@ -1,8 +1,8 @@
 import React from 'react'
 import { Image, View, Text, TextInput, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
 
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import styles from '../styles/ProductDetailStyles'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 export default function ProductDetail({navigation}) {
 
@@ -13,6 +13,7 @@ export default function ProductDetail({navigation}) {
                     <View style={{backgroundColor: '#FFF'}}>
                         <Image
                             style={styles.productImages}
+                            resizeMode="cover"
                             source={{ uri: 'https://minio.thecoffeehouse.com/image/admin/caphe-suada--bacsiu_063797.jpg' }}
                             />
                         <View>

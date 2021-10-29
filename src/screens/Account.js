@@ -5,7 +5,10 @@ import styles from '../styles/AccountStyles'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Login from './Login';
 
-export default function Account() {
+export default function Account({navigation}) {
+
+    const onLogin = () => navigation.navigate('Login')
+
     return (
         <SafeAreaView>
             <ScrollView>
@@ -82,20 +85,19 @@ export default function Account() {
                         
                         <View style={styles.line}></View>
 
-                        <View style={styles.btnItem}>
+                        <TouchableOpacity
+                        onPress={onLogin}
+                        style={styles.btnItem}
+                        >
                             <View style={{flexDirection: 'row',}}>
                                 <Ionicons name="log-out-outline" size={16} color="#000" />
                                 <Text style={styles.btnInfo}>Đăng xuất</Text>
                             </View>
                             <Ionicons name="chevron-forward-outline" size={16} color="#000" />
-                        </View>
+                        </TouchableOpacity>
 
                     </View>
 
-                </View>
-
-                <View>
-                    <Login/>
                 </View>
 
             </ScrollView>

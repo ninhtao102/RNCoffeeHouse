@@ -1,5 +1,4 @@
 import React from 'react'
-import { Button, View, Text } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -11,7 +10,10 @@ import Home from './src/screens/Home'
 import Booking from './src/screens/Booking'
 import StoreLocation from './src/screens/StoreLocation'
 import Voucher from './src/screens/Voucher'
+import ProductDetail from './src/screens/ProductDetail';
+import StoreLocationDetails from './src/screens/StoreLocationDetails';
 import Account from './src/screens/Account'
+import Login from './src/screens/Login';
 
 export default function App() {
 
@@ -25,7 +27,10 @@ export default function App() {
         <HomeStack.Screen name="Booking" component={Booking} />
         <HomeStack.Screen name="StoreLocation" component={StoreLocation} />
         <HomeStack.Screen name="Voucher" component={Voucher} />
+        <HomeStack.Screen name="ProductDetail" component={ProductDetail} />
+        <HomeStack.Screen name="StoreLocationDetails" component={StoreLocationDetails} />
         <HomeStack.Screen name="Account" component={Account} />
+        <HomeStack.Screen name="Login" component={Login} />
       </HomeStack.Navigator>
     );
   }
@@ -37,7 +42,7 @@ export default function App() {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
           
-          if (route.name === 'Home') {
+          if (route.name === 'HomeScreen') {
             iconName = focused ? 'home' : 'home-outline';
           } else if (route.name === 'Booking') {
             iconName = focused ? 'cafe' : 'cafe-outline';
@@ -57,7 +62,7 @@ export default function App() {
         headerShown: false,
       })}
       >
-        <Tab.Screen name="Home" component={HomeStackScreen} />
+        <Tab.Screen name="HomeScreen" component={HomeStackScreen} />
         <Tab.Screen name="Booking" component={Booking} />
         <Tab.Screen name="Store" component={StoreLocation} />
         <Tab.Screen name="Voucher" component={Voucher} />

@@ -1,4 +1,7 @@
-import { StyleSheet } from 'react-native'
+import { Dimensions, StyleSheet } from 'react-native'
+
+const WIDTH = Dimensions.get('window').width;
+const HEIGHT = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
     codeUsers: {
@@ -14,18 +17,31 @@ const styles = StyleSheet.create({
         shadowOpacity: 1,
         elevation: 24,
     },
+    scroll: {
+        backgroundColor: '#DDD',
+        margin: 8,
+        alignSelf: 'center',
+        width: WIDTH*0.12,
+        height: 6,
+        borderRadius: 8,
+    },
     option: {
         borderWidth: 1,
         borderColor: '#CCC',
         borderRadius: 8,
         marginHorizontal: 16,
-        marginVertical: 16,
+        marginBottom: 16,
         flexDirection: 'row',
         justifyContent: 'space-around',
     },
     icon: {
         width: 80,
         height: 80,
+    },
+    bannerList: {
+        marginBottom: 10,
+        height: 360,
+        // height: 700,
     },
     txtOption: {
         color: '#000',
@@ -62,7 +78,27 @@ const styles = StyleSheet.create({
         backgroundColor: '#EEE',
         borderRadius: 20,
     },
-
+    banner: {
+        paddingHorizontal: 16,
+        width: WIDTH*0.5,
+        height: 'auto'
+    },
+    bannerImages: {
+        width: WIDTH*0.42,
+        height: WIDTH*0.42,
+        borderRadius: 8,
+    },
+    title: {
+        textTransform: 'uppercase',
+        fontWeight: 'bold',
+        marginVertical: 8,
+        color: '#000',
+        width: WIDTH*0.4,
+    },
+    date: {
+        paddingLeft: 8,
+        marginBottom: 16,
+    }
 })
 
 export default styles;

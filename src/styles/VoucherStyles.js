@@ -45,7 +45,35 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         borderRadius: 36,
     },
-    
+    voucher: {
+        marginVertical: 4,
+        marginHorizontal: 16,
+        padding: 16,
+        borderRadius: 16,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        backgroundColor: '#FFF'
+    },
+    stylevoucher: {
+        marginHorizontal: 16,
+        marginVertical: 4,
+        padding: 16,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        borderRadius: 8,
+        backgroundColor: '#FFF'
+    },
+    voucherInfo: {
+        marginHorizontal: 16,
+        fontSize: 16,
+        color: '#000', 
+        width: WIDTH*0.55,
+    },
+    voucherImages: {
+        width: WIDTH*0.2,
+        height: WIDTH*0.2,
+        borderRadius: 4,
+    }
 })
 
 export default styles;

@@ -58,6 +58,25 @@ export default function StoreLocation({navigation}) {
 
     const viewStore = () => navigation.navigate('StoreLocationDetails')
 
+    const ListHeader = () => (
+            <View>
+                <View style={{backgroundColor: '#FFF', flexDirection: 'row',}}>
+                    <View>
+                        <Ionicons name="search-outline" size={20} color="#000" style={styles.icon} />
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Tìm kiếm"
+                        />
+                    </View>
+                    <TouchableOpacity style={styles.btnMap}>
+                        <Ionicons name="map-outline" size={20} color="#000" style={styles.iconMap} />
+                        <Text style={styles.txtMap}>Bản đồ</Text>
+                    </TouchableOpacity>
+                </View>
+                <Text style={styles.titleContent}>Các cửa hàng khác</Text>
+            </View>
+        )
+
     const renderItem = ({ item }) => (
         <View>
             <TouchableOpacity
@@ -82,32 +101,17 @@ export default function StoreLocation({navigation}) {
 
     return (
         <SafeAreaView>
-            <ScrollView
-            showsVerticalScrollIndicator={false}
-            >
-                <View style={{backgroundColor: '#EEE'}}>
-                    <View style={{backgroundColor: '#FFF', flexDirection: 'row',}}>
-                        <View>
-                            <Ionicons name="search-outline" size={20} color="#000" style={styles.icon} />
-                            <TextInput
-                                style={styles.input}
-                                placeholder="Tìm kiếm"
-                            />
-                        </View>
-                        <TouchableOpacity style={styles.btnMap}>
-                            <Ionicons name="map-outline" size={20} color="#000" style={styles.iconMap} />
-                            <Text style={styles.txtMap}>Bản đồ</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <Text style={styles.titleContent}>Các cửa hàng khác</Text>
-                    <FlatList
-                            data={storeLocationList}
-                            renderItem={renderItem}
-                            keyExtractor={item => item.id}
-                            horizontal={false}
-                        />
-                </View>
-            </ScrollView>
+            <View style={{backgroundColor: '#EEE'}}>
+                
+                <FlatList
+                        ListHeaderComponent={ListHeader}
+                        data={storeLocationList}
+                        renderItem={renderItem}
+                        keyExtractor={item => item.id}
+                        horizontal={false}
+                        showsVerticalScrollIndicator={false}
+                    />
+            </View>
         </SafeAreaView>
     )
 }
