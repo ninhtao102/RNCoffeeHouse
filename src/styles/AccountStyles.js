@@ -1,7 +1,7 @@
 import { Dimensions, StyleSheet } from 'react-native'
 
 const WIDTH = Dimensions.get('window').width;
-
+const HEIGHT = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
     container: {
@@ -49,6 +49,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#EEE',
         borderBottomWidth: 0.25,
         marginLeft: 16,
+    },
+    test: {
+        height: HEIGHT*2.08
     }
 })
 

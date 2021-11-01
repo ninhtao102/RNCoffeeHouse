@@ -5,21 +5,6 @@ import Swiper from 'react-native-swiper';
 
 const WIDTH = Dimensions.get("window").width;
 
-// const [data, setData] = useState([
-//     {
-//         image:require('../images/banner-1.jpg')
-//     },
-//     {
-//         image:require('../images/banner-2.jpg')
-//     },
-//     {
-//         image:require('../images/banner-3.jpg')
-//     },
-//     {
-//         image:require('../images/banner-4.jpg')
-//     }
-// ])
-
 export default function Banners() {
     return (
         <View style={styles.container}>
@@ -69,7 +54,7 @@ export default function Banners() {
               source={require('../images/banner-1.jpg')}
             />
           </View>
-          
+
           <View
             style={styles.slide}
           >

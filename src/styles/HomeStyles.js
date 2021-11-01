@@ -1,7 +1,6 @@
 import { Dimensions, StyleSheet } from 'react-native'
 
 const WIDTH = Dimensions.get('window').width;
-const HEIGHT = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
     codeUsers: {
@@ -41,7 +40,6 @@ const styles = StyleSheet.create({
     bannerList: {
         marginBottom: 10,
         height: 360,
-        // height: 700,
     },
     txtOption: {
         color: '#000',
@@ -57,9 +55,8 @@ const styles = StyleSheet.create({
     titleDiscovery: {
         color: '#000',
         fontWeight: 'bold',
-        marginTop: 48,
+        marginTop: 36,
         marginHorizontal: 16,
-        marginVertical: 8,
     },
     swipeBtnDiscovery: {
         flexDirection: 'row', 
@@ -80,12 +77,13 @@ const styles = StyleSheet.create({
     },
     banner: {
         paddingHorizontal: 16,
-        width: WIDTH*0.5,
-        height: 'auto'
+        flexDirection:'row',
+        flexWrap:'wrap',
+        justifyContent:'space-between',
     },
     bannerImages: {
-        width: WIDTH*0.42,
-        height: WIDTH*0.42,
+        width: WIDTH*0.44,
+        height: WIDTH*0.44,
         borderRadius: 8,
     },
     title: {

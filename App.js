@@ -23,7 +23,7 @@ export default function App() {
   function HomeStackScreen() {
     return (
       <HomeStack.Navigator>
-        <HomeStack.Screen name="Home" component={Home} />
+        <HomeStack.Screen name="Home" component={Home} headerShown={false} />
         <HomeStack.Screen name="Booking" component={Booking} />
         <HomeStack.Screen name="StoreLocation" component={StoreLocation} />
         <HomeStack.Screen name="Voucher" component={Voucher} />
@@ -39,6 +39,7 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator
       screenOptions={({ route }) => ({
+        tabBarHideOnKeyboard: true,
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
           
