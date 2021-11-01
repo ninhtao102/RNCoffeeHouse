@@ -18,8 +18,11 @@
     "axios": "^0.24.0",
     "react": "17.0.2",
     "react-native": "0.66.0",
+    "react-native-parallax-scroll-view": "^0.21.3",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.8.0",
+    "react-native-swiper": "^1.6.0",
+    "react-native-swiper-flatlist": "^3.0.15",
     "react-native-vector-icons": "^8.1.0"
   },
   "devDependencies": {
