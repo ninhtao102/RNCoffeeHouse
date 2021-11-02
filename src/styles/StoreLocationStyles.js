@@ -46,8 +46,8 @@ const styles = StyleSheet.create({
         padding: 16,
     },
     locationImages: {
-        width: 80,
-        height: 80,
+        width: WIDTH*0.2,
+        height: WIDTH*0.2,
         borderRadius: 8,
     },
     locationInfo: {

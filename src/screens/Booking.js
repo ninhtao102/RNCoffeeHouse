@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import { FlatList, Image, View, Text, TextInput, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
 import styles from '../styles/BookingStyles'
 import axios from 'axios'
@@ -65,23 +65,32 @@ const productsList = [
 
 export default function Booking({navigation}) {
 
-    console.tron.log('aaaaaaa')
+    const [data, useData] = useState([]);
+    const [isLoading, useIsLoading] = useState(true);
 
     useEffect(() => {
-        const getProductList = async () => {
-            console.tron.log('aaaaaaa')
-            console.log('douma')
-            try {
-                const response = await axios.get('https://reactnative.dev/movies.json');
-                console.tron.log('data',response);
-            } catch (error) {
-                console.error(error);
-            }
-        }
+        axios.post('https://api.thecoffeehouse.com/api/v5/menu')
+          .then(({ data }) => {
+            console.log("data", data.menu)
+            useData(data.menu)
+          })
+          .catch((error) => console.error(error))
+          .finally(() => useIsLoading(false));
+      }, []);
+
+    // useEffect(() => {
+    //     const getProductList = async () => {
+    //         try {
+    //             const response = await axios.post('https://api.thecoffeehouse.com/api/v5/menu');
+    //             console.tron.log('data',response);
+    //         } catch (error) {
+    //             console.error(error);
+    //         }
+    //     }
         
-        getProductList()
+    //     getProductList()
         
-    }, [])
+    // }, [])
 
     const viewDetails = () => navigation.navigate('ProductDetail')
     
@@ -141,7 +150,7 @@ export default function Booking({navigation}) {
                 </View>
                 <Image
                 style={styles.productsImages}
-                source={{ uri: item?.photo }}
+                source={{ uri: item?.thumbnail }}
                 />
             </TouchableOpacity>
         </View>
@@ -152,7 +161,7 @@ export default function Booking({navigation}) {
             <View style={{backgroundColor: '#EEE'}}>
                 <FlatList
                     ListHeaderComponent={ListHeader}
-                    data={productsList}
+                    data={data}
                     renderItem={renderItem}
                     keyExtractor={item => item.id}
                     horizontal={false}

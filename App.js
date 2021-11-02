@@ -23,14 +23,14 @@ export default function App() {
   function HomeStackScreen() {
     return (
       <HomeStack.Navigator>
-        <HomeStack.Screen name="Home" component={Home} headerShown={false} />
-        <HomeStack.Screen name="Booking" component={Booking} />
-        <HomeStack.Screen name="StoreLocation" component={StoreLocation} />
-        <HomeStack.Screen name="Voucher" component={Voucher} />
-        <HomeStack.Screen name="ProductDetail" component={ProductDetail} />
-        <HomeStack.Screen name="StoreLocationDetails" component={StoreLocationDetails} />
-        <HomeStack.Screen name="Account" component={Account} />
-        <HomeStack.Screen name="Login" component={Login} />
+        <HomeStack.Screen name="HomeScreen" component={Home} options={{headerShown: false}} />
+        {/* <HomeStack.Screen name="Booking" component={Booking} options={{headerShown: false}} />
+        <HomeStack.Screen name="StoreLocation" component={StoreLocation} options={{headerShown: false}} />
+        <HomeStack.Screen name="Voucher" component={Voucher} /> */}
+        <HomeStack.Screen name="ProductDetail" component={ProductDetail} options={{headerShown: false}} />
+        <HomeStack.Screen name="StoreLocationDetails" component={StoreLocationDetails} options={{headerShown: false}} />
+        {/* <HomeStack.Screen name="Account" component={Account} /> */}
+        <HomeStack.Screen name="Login" component={Login} options={{headerShown: false}} />
       </HomeStack.Navigator>
     );
   }
@@ -43,7 +43,7 @@ export default function App() {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
           
-          if (route.name === 'HomeScreen') {
+          if (route.name === 'Home') {
             iconName = focused ? 'home' : 'home-outline';
           } else if (route.name === 'Booking') {
             iconName = focused ? 'cafe' : 'cafe-outline';
@@ -63,7 +63,7 @@ export default function App() {
         headerShown: false,
       })}
       >
-        <Tab.Screen name="HomeScreen" component={HomeStackScreen} />
+        <Tab.Screen name="Home" component={HomeStackScreen} />
         <Tab.Screen name="Booking" component={Booking} />
         <Tab.Screen name="Store" component={StoreLocation} />
         <Tab.Screen name="Voucher" component={Voucher} />
@@ -72,4 +72,5 @@ export default function App() {
       </Tab.Navigator>
     </NavigationContainer>
   )
+
 }

@@ -71,7 +71,7 @@ export default function Login({navigation}) {
 
 const styles = StyleSheet.create({
     content: {
-        marginTop: HEIGHT*0.17,
+        marginTop: HEIGHT*0.24,
         height: HEIGHT,
         backgroundColor: '#FFF', 
         borderTopLeftRadius: 16, 

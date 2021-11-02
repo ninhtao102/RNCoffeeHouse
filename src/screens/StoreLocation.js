@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { FlatList, Image, View, Text, TextInput, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
+
 import styles from '../styles/StoreLocationStyles'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import axios from 'axios'
 
 const storeLocationList = [
     {
@@ -58,6 +60,30 @@ export default function StoreLocation({navigation}) {
 
     const viewStore = () => navigation.navigate('StoreLocationDetails')
 
+    const [data, useData] = useState([]);
+    const [isLoading, useIsLoading] = useState(true);
+
+    useEffect(() => {
+        axios.get('https://api.thecoffeehouse.com/api/v5/stores/all')
+          .then(({ data }) => {
+            console.log("data", data.stores)
+            useData(data.stores)
+          })
+          .catch((error) => console.error(error))
+          .finally(() => useIsLoading(false));
+      }, []);
+
+    // callApi = () => {
+    //     axios.get('https://api.thecoffeehouse.com/api/v5/stores/all')
+    //     .then(function (response) {
+    //         console.log('response=>', response)
+    //         alert(JSON.stringify(response));
+    //     })
+    //     .catch(function (error) {
+    //         alert(error);
+    //     });
+    // }
+
     const ListHeader = () => (
             <View>
                 <View style={{backgroundColor: '#FFF', flexDirection: 'row',}}>
@@ -81,19 +107,24 @@ export default function StoreLocation({navigation}) {
         <View>
             <TouchableOpacity
             onPress={viewStore}
+            // onPress={()=>this.callApi()}
             style={styles.locationtItem}>
                 <Image
                     style={styles.locationImages}
-                    source={{ uri: item?.photo }}
+                    source={{ uri: item?.images[0] }}
                     />
                 <View style={styles.locationInfo}>
-                    <Text style={styles.name}>the coffee house</Text>
+                    <Text 
+                    style={styles.name}
+                    numberOfLines={2}
+                    ellipsizeMode= 'tail'
+                    >{item.name}</Text>
                     <Text 
                     style={styles.location}
                     numberOfLines={2}
                     ellipsizeMode= 'tail'
-                    >{item?.location}</Text>
-                    <Text style={styles.distance}>Cách đây {item?.distance} km</Text>
+                    >{item?.full_address}</Text>
+                    {/* <Text style={styles.distance}>Cách đây {item?.distance} km</Text> */}
                 </View>
             </TouchableOpacity>
         </View>
@@ -105,7 +136,7 @@ export default function StoreLocation({navigation}) {
                 
                 <FlatList
                         ListHeaderComponent={ListHeader}
-                        data={storeLocationList}
+                        data={data}
                         renderItem={renderItem}
                         keyExtractor={item => item.id}
                         horizontal={false}

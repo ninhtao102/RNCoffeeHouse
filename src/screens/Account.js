@@ -3,6 +3,7 @@ import { Image, View, Text, TouchableOpacity, SafeAreaView, ScrollView } from 'r
 
 import styles from '../styles/AccountStyles'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import Cart from './Cart'
 
 export default function Account({navigation}) {
 
@@ -10,6 +11,7 @@ export default function Account({navigation}) {
 
     return (
         <SafeAreaView>
+            <ScrollView>
             <View style={styles.container}>
                 <Text style={styles.title}>Tiện ích</Text>
                 <View>
@@ -95,7 +97,11 @@ export default function Account({navigation}) {
 
                 </View>
 
+
             </View>
+                <Cart/>
+
+                </ScrollView>
         </SafeAreaView>
     )
 }
