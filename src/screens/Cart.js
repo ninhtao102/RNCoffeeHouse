@@ -1,6 +1,7 @@
 import React from 'react'
-import { Image,  View, Text, TouchableOpacity, SafeAreaView, ScrollView, StyleSheet} from 'react-native'
+import { Dimensions, Image,  View, Text, TouchableOpacity, SafeAreaView, ScrollView, StyleSheet} from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+const WIDTH = Dimensions.get('window').width;
 
 export default function Cart() {
     return (
@@ -16,20 +17,48 @@ export default function Cart() {
                     </TouchableOpacity>
                 </View>
 
-                <View>
-                    <View>
+                <View style={styles.content}>
+                    <View style={styles.headerContent}>
                         <Text style={styles.titleContent}>Tự đến lấy hàng</Text>
                         <TouchableOpacity>
-                            <Text>Thay đổi</Text>
+                            <Text style={styles.btnContent}>Thay đổi</Text>
+                        </TouchableOpacity>
+                    </View>
+
+                    <View >
+                        <Ionicons name="chevron-forward-outline" size={20} color="#000" style={styles.rightArrow} />    
+                        <Text style={styles.address}>
+                            Chung cư Victoria Văn Phú tòa V2 khu đô thị Văn Phú, Hà Đông, Hà Nội, Việt Nam
+                        </Text>
+                    </View>
+                    <View style={styles.line}></View>
+                    <View>
+                        <TouchableOpacity>
+                            <Text>Ngày mai</Text>
+                            <Text style={{color: '#000'}}>Sớm nhất có thể</Text>
+                            <Ionicons name="chevron-forward-outline" size={20} color="#000" style={[styles.rightArrow, {top: -24}]} />
                         </TouchableOpacity>
                     </View>
                 </View>
 
-                <View>
-                    <View>
+                <View style={styles.content}>
+                    <View style={styles.headerContent}>
                         <Text style={styles.titleContent}>Sảm phẩm đã chọn</Text>
                         <TouchableOpacity>
-                            <Text>+ Thêm</Text>
+                            <Text style={styles.btnContent}>+ Thêm</Text>
+                        </TouchableOpacity>
+                    </View>
+
+                    <View>
+                        <TouchableOpacity style={{ marginTop: 16, flexDirection: 'row', justifyContent: 'space-between'}}>
+                            <View style={{flexDirection: 'row'}}>
+                                <Ionicons name="pencil-outline" size={20} color="#FF7900" />
+                                <View style={{marginLeft: 16}}>
+                                    <Text>x3 Bạc Sỉu</Text>
+                                    <Text>Lớn</Text>
+                                </View>
+                            </View>
+                            <Text>35.000đ</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -43,7 +72,7 @@ export default function Cart() {
                         </View>
                         <View style={styles.line}></View>
                         <View>
-                            <Ionicons name="chevron-forward-outline" size={20} color="#000" style={styles.rightArrow} />    
+                            <Ionicons name="chevron-forward-outline" size={20} color="#000" style={styles.rightArrow} />
                             <Text style={styles.select}>Chọn khuyến mãi</Text>
                         </View>
                         <View style={styles.line}></View>
@@ -83,6 +112,7 @@ const styles = StyleSheet.create({
     },
     content: {
         marginTop: 16,
+        padding: 16,
         backgroundColor: '#FFF'
     },
     header: {
@@ -96,14 +126,26 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontWeight: 'bold'
     },
-    line: {
-        borderBottomWidth: 1,
-        borderBottomColor: '#CCC'
+    headerContent: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    btnContent: {
+        padding: 8,
+        paddingHorizontal: 16,
+        color: '#FF7900',
+        backgroundColor: '#fcbf49',
+        fontWeight: 'bold',
+        borderRadius: 16,
     },
     titleContent: {
         color: '#000',
-        fontSize: 20,
+        fontSize: 24,
         fontWeight: 'bold'
+    },
+    address: {
+        color: '#000',
+        width: WIDTH*0.8
     },
     select: {
         color: '#0077b6',
@@ -112,7 +154,6 @@ const styles = StyleSheet.create({
         top: 21,
         alignSelf: 'flex-end',
     },
-    
     infoBooking: {
         padding: 24,
         flexDirection: 'row',
@@ -134,5 +175,11 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase',
         fontWeight: 'bold',
         borderRadius: 24,
+    },
+    line: {
+        marginTop: 16,
+        backgroundColor: '#CCC',
+        width: WIDTH,
+        height: 1,
     }
 })
