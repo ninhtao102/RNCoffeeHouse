@@ -19,6 +19,8 @@
     "react": "17.0.2",
     "react-native": "0.66.0",
     "react-native-axios": "^0.17.1",
+    "react-native-dropdown-picker": "^5.2.3",
+    "react-native-modal": "^13.0.0",
     "react-native-parallax-scroll-view": "^0.21.3",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.8.0",
