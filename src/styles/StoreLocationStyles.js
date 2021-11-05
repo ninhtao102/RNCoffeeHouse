@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 16,
     },
     name: {
+        width: WIDTH*0.6,
         textTransform: 'uppercase',
         fontSize: 12,
         fontWeight: 'bold',

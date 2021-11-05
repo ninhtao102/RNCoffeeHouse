@@ -116,7 +116,7 @@ export default function StoreLocation({navigation}) {
                 <View style={styles.locationInfo}>
                     <Text 
                     style={styles.name}
-                    numberOfLines={2}
+                    numberOfLines={1}
                     ellipsizeMode= 'tail'
                     >{item.name}</Text>
                     <Text 
