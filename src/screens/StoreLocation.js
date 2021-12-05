@@ -124,7 +124,6 @@ export default function StoreLocation({navigation}) {
                     numberOfLines={2}
                     ellipsizeMode= 'tail'
                     >{item?.full_address}</Text>
-                    {/* <Text style={styles.distance}>Cách đây {item?.distance} km</Text> */}
                 </View>
             </TouchableOpacity>
         </View>

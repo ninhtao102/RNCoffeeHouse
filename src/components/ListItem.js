@@ -1,5 +1,5 @@
 import React from 'react'
-import { View,StyleSheet, Text,Image, TouchableOpacity,TextInput, ScrollView,NumberFormat,Intl } from 'react-native'
+import { View,StyleSheet, Text,Image, TouchableOpacity } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 export function ItemProduct({item, index}) {

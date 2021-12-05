@@ -9,8 +9,8 @@ export default function Banners() {
     return (
         <View style={styles.container}>
         <Swiper
-          autoplay = {true}
-          autoplayTimeout = {3}
+          // autoplay = {true}
+          // autoplayTimeout = {3}
           style={styles.wrapper}
           height={240}
           onMomentumScrollEnd={(e, state, context) =>

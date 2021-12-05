@@ -1,65 +1,95 @@
-import React from 'react'
-import { Image, View, Text, TextInput, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
-
-import styles from '../styles/ProductDetailStyles'
+import React, { useState, useEffect } from 'react'
+import { Dimensions, Image, View, Text, TextInput, TouchableOpacity, SafeAreaView, ScrollView, StyleSheet } from 'react-native'
+import { useSelector, useDispatch } from "react-redux"
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-export default function ProductDetail({navigation}) {
+const { HEIGHT, WIDTH } = Dimensions.get('window');
+
+export default function ProductDetail({navigation, route}) {
+
+    const { data } = route.params;
+    // const dispatch = useDispatch();
+
+    const [priceDetail, setPriceDetail] = useState(data?.price)
+    const [quantity, setQuantity] = useState(1)
+    const [total, setTotal] = useState(0)
+
+    useEffect(() => {
+        setTotal(priceDetail * quantity) 
+    }, [quantity]);
+
+    // const onAddCart = () => {
+    //     dispatch({ type: "ADD_TO_CART", data: { ...data, quantity: quantity } });
+    // }
 
     return (
-        <SafeAreaView>
+        <View style={styles.container}>
             <ScrollView>
-                <View style={{backgroundColor: '#EEE'}}>
-                    <View style={{backgroundColor: '#FFF'}}>
-                        <Image
-                            style={styles.productImages}
-                            resizeMode="cover"
-                            source={{ uri: 'https://minio.thecoffeehouse.com/image/admin/caphe-suada--bacsiu_063797.jpg' }}
-                            />
+                <View>
+                    <ScrollView
+                        horizontal={true}
+                        showsHorizontalScrollIndicator={false}
+                    >
+                        {
+                            data?.images?.map((item, index) => {
+                                return(
+                                    <Image
+                                        style={
+                                            data?.images?.length === 1 ? styles.imageSingle : styles.image
+                                        }
+                                        key={index}
+                                        source={{
+                                        uri: item,
+                                    }} />
+                                )
+                            })
+                        }
+                    </ScrollView>
+                </View>
+                <View>
+                    <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                         <View>
-                            <View style={{ padding: 16, flexDirection: 'row', justifyContent: 'space-between'}}>
-                                <View>
-                                    <Text style={styles.productName}>Cà Phê Sữa Đá</Text>
-                                    <Text style={styles.price}>32.000đ</Text>
-                                </View>
-                                <Ionicons name="heart-outline" size={20} color="#000" style={styles.icon} />
-                            </View>
-                            <Text style={styles.productInfo}>
-                            Cà phê được pha phin truyền thống kết hợp với sữa đặc tạo nên hương vị đậm đà, hài hòa giữa vị ngọt đầu lưỡi và vị đắng thanh thoát nơi hậu vị.
-                            </Text>
-                        </View>
-                    </View>
-
-                    <View style={styles.option}>
-                        <Text style={styles.title}>Size</Text>
-                        <Text style={styles.desc}>Chọn 1 kích thước</Text>
-                    </View>
-
-                    <View style={styles.option}>
-                        <Text style={styles.title}>Yêu cầu khác</Text>
-                        <Text style={styles.desc}>Những tùy chọn khác</Text>
-                        <TextInput
-                            style={styles.input}
-                            placeholder="Thêm ghi chú"
-                        />
-                    </View>
-
-                    <View style={[styles.option, {paddingTop: 0}]}>
-                        <View style={[styles.addMoreProduct, {marginHorizontal: 90}]}>
-                            <TouchableOpacity>
-                                <Text style={styles.btnAddMore}>-</Text>
-                            </TouchableOpacity>
-                            <Text style={styles.addMoreValue}>1</Text>
-                            <TouchableOpacity>
-                                <Text style={styles.btnAddMore}>+</Text>
-                            </TouchableOpacity>
+                            <Text style={styles.product_name}>{data?.name}</Text>
+                            <Text style={styles.price}>{priceDetail}đ</Text>
                         </View>
                         <TouchableOpacity>
-                            <Text style={styles.addProduct}>Chọn sản phẩm</Text>
+                            <Ionicons name="heart-outline" size={20} color="#000" style={styles.icon} />
                         </TouchableOpacity>
                     </View>
+                    <Text>{data?.description}</Text>
+
                 </View>
+
             </ScrollView>
-        </SafeAreaView>
+
+            
+        </View>
+
     )
 }
+
+const styles = StyleSheet.create({
+    image: {
+        width: WIDTH*0.8,
+        height: WIDTH,
+        resizeMode: 'contain',
+    },
+    imageSingle: {
+        width: WIDTH,
+        height: WIDTH,
+        resizeMode: 'contain',
+    },
+    product_name: {
+        color: '#000',
+        fontSize: 20,
+        fontWeight: 'bold'
+    },
+    price: {
+        color: '#767676',
+        fontWeight: 'bold'
+    },
+    icon: {
+        top: 10,
+        right: 10,
+    }
+})

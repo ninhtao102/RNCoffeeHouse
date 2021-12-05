@@ -107,9 +107,6 @@ export default function Cart() {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        marginVertical: 20
-    },
     content: {
         marginTop: 16,
         padding: 16,

@@ -4,7 +4,7 @@ const WIDTH = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
     input: {
-        backgroundColor: '#EEE',
+        backgroundColor: '#FFF',
         marginHorizontal: 16,
         width: WIDTH*0.7,
         height: 40,
