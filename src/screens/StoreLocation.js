@@ -1,68 +1,17 @@
 import React, {useEffect, useState} from 'react'
-import { FlatList, Image, View, Text, TextInput, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
-
-import styles from '../styles/StoreLocationStyles'
+import { FlatList, Image, View, Text, TextInput, TouchableOpacity, SafeAreaView } from 'react-native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import styles from '../styles/StoreLocationStyles'
 import axios from 'axios'
 
-const storeLocationList = [
-    {
-        id: 1,
-        photo: 'https://bloganchoi.com/wp-content/uploads/2019/12/ha-dong.jpg',
-        location: 'Chung cư Victoria Văn Phú Tòa V2 Khu đô thị Văn Phú, Hà Đông, Hà Nội, Việt Nam',
-        distance: 9.0
-    },
-    {
-        id: 2,
-        photo: 'https://www.spectos.com/wp-content/uploads/2019/09/teaser-the-coffee-house.jpg',
-        location: 'Rice City Linh Đàm, Hoàng Mai, Hà Nội, Việt Nam',
-        distance: 10.0
-    },
-    {
-        id: 3,
-        photo: 'https://danviet.mediacdn.vn/2021/4/13/the-coffee-house-khong-nhuong-nguyen-1618324271848672760365-crop-1618324294521246672359.jpg',
-        location: 'Tầng 1 tòa CT5A thuộc dự án Văn Khê, Hà Đông, Hà Nội, Việt Nam',
-        distance: 10.7
-    },
-    {
-        id: 4,
-        photo: 'https://cdn.vietnambiz.vn/171464876016439296/2020/8/19/tch-15839274229471306654924-crop-15839274339272101041463-1597828167997932436972.jpg',
-        location: '38 Nguyễn Khuyến, Hà Đông, Hà Nội, Việt Nam',
-        distance: 10.8
-    },
-    {
-        id: 5,
-        photo: 'https://hai.doimoisangtao.vn/wp-content/uploads/Kinhnghiemkinhdoanh.org-the-coffee-house-phat-trien-thuong-hieu-nho-vao-customer-insight-k7-1.jpg',
-        location: 'Số BT16B5-06 Làng Việt Kiều Châu Âu, Khu ĐTM Mỗ Lao, Hà Nội, Việt Nam',
-        distance: 11.6
-    },
-    {
-        id: 6,
-        photo: 'https://blog.utop.vn/uploads/126638328908012021.jpg',
-        location: '349 Vũ Tông Phan, Thanh Xuân, Hà Nội, Việt Nam',
-        distance: 12.6
-    },
-    {
-        id: 7,
-        photo: 'https://giaanjsc.com/wp-content/uploads/2020/10/thi-c%C3%B4ng-qu%C3%A1n-cafe-%C4%91%E1%BA%B9p-t%E1%BA%A1i-h%C3%A0-n%E1%BB%99i-6.jpg',
-        location: 'Chung dân cư Hà Đông, Hà Nội, Việt Nam',
-        distance: 12.8
-    },
-    {
-        id: 8,
-        photo: 'https://www.spectos.com/wp-content/uploads/2019/09/teaser-the-coffee-house.jpg',
-        location: '72 Trần Nguyên Đán, Hoàng Mai, Hà Nội, Việt Nam',
-        distance: 12.9
-    },
-]
+export default function StoreLocation({item, index}) {
 
-export default function StoreLocation({navigation}) {
-
-    const viewStore = () => navigation.navigate('StoreLocationDetails')
+    const navigation = useNavigation();
+    const moveToStoreDetail = (item) => () => navigation.navigate('StoreLocationDetails', { data: item })
 
     const [data, useData] = useState([]);
     const [isLoading, useIsLoading] = useState(true);
-
     useEffect(() => {
         axios.get('https://api.thecoffeehouse.com/api/v5/stores/all')
           .then(({ data }) => {
@@ -72,17 +21,6 @@ export default function StoreLocation({navigation}) {
           .catch((error) => console.error(error))
           .finally(() => useIsLoading(false));
       }, []);
-
-    // callApi = () => {
-    //     axios.get('https://api.thecoffeehouse.com/api/v5/stores/all')
-    //     .then(function (response) {
-    //         console.log('response=>', response)
-    //         alert(JSON.stringify(response));
-    //     })
-    //     .catch(function (error) {
-    //         alert(error);
-    //     });
-    // }
 
     const ListHeader = () => (
             <View>
@@ -106,8 +44,7 @@ export default function StoreLocation({navigation}) {
     const renderItem = ({ item }) => (
         <View>
             <TouchableOpacity
-            onPress={viewStore}
-            // onPress={()=>this.callApi()}
+            onPress={moveToStoreDetail(item)}
             style={styles.locationtItem}>
                 <Image
                     style={styles.locationImages}
@@ -132,15 +69,14 @@ export default function StoreLocation({navigation}) {
     return (
         <SafeAreaView>
             <View style={{backgroundColor: '#EEE'}}>
-                
                 <FlatList
-                        ListHeaderComponent={ListHeader}
-                        data={data}
-                        renderItem={renderItem}
-                        keyExtractor={item => item.id}
-                        horizontal={false}
-                        showsVerticalScrollIndicator={false}
-                    />
+                    ListHeaderComponent={ListHeader}
+                    data={data}
+                    renderItem={renderItem}
+                    keyExtractor={item => item.id}
+                    horizontal={false}
+                    showsVerticalScrollIndicator={false}
+                />
             </View>
         </SafeAreaView>
     )

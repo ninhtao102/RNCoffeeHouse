@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
         borderRadius: 16,
     },
     btnGroup: {
-        paddingHorizontal: 12,
+        paddingHorizontal: 16,
         paddingVertical: 16,
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     btnItem: {
         margin: 4,
         padding: 16,
-        width: WIDTH*0.45,
+        width: WIDTH*0.43,
         backgroundColor: '#FFF',
         borderRadius: 8,
     },

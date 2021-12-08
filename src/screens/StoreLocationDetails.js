@@ -2,76 +2,76 @@ import React from 'react'
 import { Dimensions, Image, View, Text, TouchableOpacity, SafeAreaView, ScrollView, StyleSheet } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-const { HEIGHT, WIDTH } = Dimensions.get('window');
+const WIDTH = Dimensions.get('window').width
+const HEIGHT = Dimensions.get('window').height
 
-export default function StoreLocationDetails({navigation}) {
+export default function StoreLocationDetails({navigation, route}) {
 
+    const { data } = route.params
     const onBooking = () => navigation.navigate('Booking')
 
     return (
         <SafeAreaView>
-            <ScrollView>
-                <View style={{backgroundColor: '#FFF'}}>
-                    <Image
-                        style={styles.locationImages}
-                        source={{ uri: 'https://image.bnews.vn/MediaUpload/Org/2021/01/23/the-coffee-house1.jpg' }}
-                        />
-                    <View style={styles.title}>
-                        <Text style={styles.name}>the coffee house</Text>
-                        <Text style={styles.store}>Chung cư Victoria Văn Phú Tòa V2 Khu đô thị Văn Phú</Text>
-                        <Text style={{fontSize: 12}}>Giờ mở cửa: 7:00 - 22:00</Text>
-                    </View>
-
-                    <View style={{margin: 16}}>
-                        <View style={styles.info}>
-                            <Ionicons name="navigate-outline" size={20} color="#000" style={styles.icon} />
-                            <Text
-                                style={styles.infoStore}
-                                numberOfLines={2}
-                                ellipsizeMode= 'tail'
-                            >Chung cư Victoria Văn Phú Tòa V2 Khu đô thị Văn Phú, Hà Đông, Hà Nội, Việt Nam</Text>
-                        </View>
-
-                        <View style={styles.info}>
-                            <Ionicons name="heart-outline" size={20} color="#000" style={styles.icon} />
-                            <Text
-                                style={styles.infoStore}
-                            >Thêm vào danh sách yêu thích</Text>
-                        </View>
-
-                        <View style={styles.info}>
-                            <Ionicons name="call" size={20} color="#000" style={styles.icon} />
-                            <Text
-                                style={styles.infoStore}
-                            >Liên hệ</Text>
-                        </View>
-
-                        <View style={styles.info}>
-                            <Ionicons name="arrow-redo-outline" size={20} color="#000" style={styles.icon} />
-                            <Text
-                                style={styles.infoStore}
-                            >Chia sẻ với bạn bè</Text>
-                        </View>
-                    </View>
-
-                    <TouchableOpacity
-                        onPress={onBooking}
-                        style={styles.button}
-                    >
-                        <Text style={[styles.btnName, {fontWeight: 'bold'}]}>Đặt sản phẩm</Text>
-                        <Text style={styles.btnName}>Tự đến lấy tại cửa hàng này</Text>
-                    </TouchableOpacity>
+            <ScrollView style={{backgroundColor: '#FFF'}}>
+                <View style={styles.thumbnail}>
+                    <Image source={{ uri: data?.images[0] }} style={styles.image} />
                 </View>
+                <View style={styles.title}>
+                    <Text style={styles.name}>{data?.pu_city}</Text>
+                    <Text style={styles.store} >{data?.name}</Text>
+                    <Text style={{fontSize: 12}}>Giờ mở cửa: {data?.open_time}</Text>
+                </View>
+                <View style={{margin: 16}}>
+                    <View style={styles.info}>
+                        <Ionicons name="navigate-outline" size={20} color="#000" style={styles.icon} />
+                        <Text
+                            style={styles.infoStore}
+                            numberOfLines={2}
+                            ellipsizeMode= 'tail'
+                        >{data?.full_address}</Text>
+                    </View>
+                    <View style={styles.info}>
+                        <Ionicons name="heart-outline" size={20} color="#000" style={styles.icon} />
+                        <Text
+                            style={styles.infoStore}
+                        >Thêm vào danh sách yêu thích</Text>
+                    </View>
+                    <View style={styles.info}>
+                        <Ionicons name="call" size={20} color="#000" style={styles.icon} />
+                        <Text
+                            style={styles.infoStore}
+                        >Liên hệ</Text>
+                    </View>
+                    <View style={styles.info}>
+                        <Ionicons name="arrow-redo-outline" size={20} color="#000" style={styles.icon} />
+                        <Text
+                            style={styles.infoStore}
+                        >Chia sẻ với bạn bè</Text>
+                    </View>
+                </View>
+
+                <TouchableOpacity
+                    onPress={onBooking}
+                    style={styles.button}
+                >
+                    <Text style={[styles.btnName, {fontWeight: 'bold'}]}>Đặt sản phẩm</Text>
+                    <Text style={styles.btnName}>Tự đến lấy tại cửa hàng này</Text>
+                </TouchableOpacity>
             </ScrollView>
         </SafeAreaView>
         )
 }
 
 const styles = StyleSheet.create({
-    locationImages: {
+    image: {
         width: WIDTH,
-        height: 320,
+        height: HEIGHT*0.36,
         resizeMode: 'cover',
+    },
+    imageSingle: {
+        width: WIDTH*0.8,
+        height: HEIGHT*0.36,
+        resizeMode: 'contain',
     },
     title: {
         padding: 16,
@@ -104,6 +104,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     icon: {
+        marginRight: 8,
         padding: 12,
         justifyContent: 'center',
         alignContent: 'center',
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
     },
     infoStore: {
-        width: 340,
+        width: 300,
         textAlignVertical: 'center',
         color: '#000',
         borderBottomWidth: 1,

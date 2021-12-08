@@ -29,7 +29,7 @@ export default function ProductDetail({navigation, route}) {
             showsVerticalScrollIndicator={false}
             >
                 <View style={styles.thumbnail}>
-                    <ScrollView
+                    {/* <ScrollView
                         horizontal={true}
                         showsHorizontalScrollIndicator={false}
                     >
@@ -47,7 +47,8 @@ export default function ProductDetail({navigation, route}) {
                                 )
                             })
                         }
-                    </ScrollView>
+                    </ScrollView> */}
+                    <Image source={{ uri: data?.images[0] }} style={styles.imageSingle} />
                 </View>
                 <View style={{backgroundColor: '#FFF', padding: 16}} >
                     <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>

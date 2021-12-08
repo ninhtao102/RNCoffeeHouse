@@ -1,6 +1,7 @@
 import { Dimensions, StyleSheet } from "react-native";
 
-const { HEIGHT, WIDTH } = Dimensions.get('window');
+const WIDTH = Dimensions.get('window').width
+const HEIGHT = Dimensions.get('window').height
 
 const btnGroup = {
     margin: 8,

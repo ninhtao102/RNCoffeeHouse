@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { Dimensions, FlatList, Image, View, Text, TextInput, TouchableOpacity, SafeAreaView, ScrollView, StyleSheet } from 'react-native'
+import { Dimensions, Image, View, Text, TextInput, TouchableOpacity, SafeAreaView, ScrollView, StyleSheet } from 'react-native'
 import axios from 'axios'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { conditionalExpression } from '@babel/types'
@@ -8,8 +8,6 @@ import ListItem from '../components/ListItem'
 const WIDTH = Dimensions.get('window').width;
 
 export default function Booking({navigation}) {
-
-    const viewDetails = () => navigation.navigate('ProductDetail')
 
     // const [data, useData] = useState([]);
     // const [isLoading, useIsLoading] = useState(true);
@@ -50,10 +48,10 @@ export default function Booking({navigation}) {
                         )
                         })
                     }
-                    <TouchableOpacity key="8" style={styles.category}>
+                    {/* <TouchableOpacity key="8" style={styles.category}>
                         <Image style={styles.thumbnail} source={require('../images/more.png')} />
                         <Text numberOfLines={3} style={styles.categoryTitle} >Khác</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                 </View>
 
                 <View style={styles.shopList}>
@@ -77,7 +75,7 @@ const styles = StyleSheet.create({
         justifyContent:'space-between'
     },
     category: {
-        margin: 10
+        margin: 4
     },
     thumbnail: {
         alignSelf: 'center',

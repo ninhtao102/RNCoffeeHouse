@@ -1,6 +1,8 @@
 import React from 'react'
-import { View,StyleSheet, Text,Image, TouchableOpacity } from 'react-native'
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { Dimensions, View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native'
+import { useNavigation, useRoute } from '@react-navigation/native'
+
+const WIDTH = Dimensions.get('window').width;
 
 export function ItemProduct({item, index}) {
     const navigation = useNavigation();
@@ -53,8 +55,8 @@ const styles = StyleSheet.create({
         justifyContent:'space-between',
     },
     itemImage: {
-        width:90,
-        height:90,
+        width: WIDTH*0.2,
+        height: WIDTH*0.2,
         borderRadius:5
     },
     itemTitle: {

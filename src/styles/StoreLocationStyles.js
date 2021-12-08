@@ -1,6 +1,7 @@
 import { Dimensions, StyleSheet } from 'react-native'
 
-const WIDTH = Dimensions.get('window').width;
+const WIDTH = Dimensions.get('window').width
+const HEIGHT = Dimensions.get('window').height
 
 const styles = StyleSheet.create({
     input: {
@@ -36,6 +37,16 @@ const styles = StyleSheet.create({
         color: '#000',
         fontSize: 18,
         fontWeight: 'bold',
+    },
+    image: {
+        width: WIDTH*0.8,
+        height: HEIGHT*0.4,
+        resizeMode: 'contain',
+    },
+    imageSingle: {
+        width: WIDTH,
+        height: HEIGHT*0.4,
+        resizeMode: 'contain',
     },
     locationtItem: {
         flexDirection: 'row',

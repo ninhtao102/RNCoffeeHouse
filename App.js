@@ -27,7 +27,6 @@ export default function App() {
     return (
       <HomeStack.Navigator>
         <HomeStack.Screen name="HomeScreen" component={Home} options={{headerShown: false}} />
-        <HomeStack.Screen name="StoreLocationDetails" component={StoreLocationDetails} options={{headerShown: false}} />
         <HomeStack.Screen name="Login" component={Login} options={{headerShown: false}} />
       </HomeStack.Navigator>
     );
@@ -46,7 +45,7 @@ export default function App() {
     return (
       <StoreStack.Navigator>
         <StoreStack.Screen name="StoreLocationScreen" component={StoreLocation} options={{headerShown: false}} />
-        <StoreStack.Screen name="StoreLocationDetail" component={StoreLocationDetails} />
+        <StoreStack.Screen name="StoreLocationDetails" component={StoreLocationDetails} />
       </StoreStack.Navigator>
     );
   }
