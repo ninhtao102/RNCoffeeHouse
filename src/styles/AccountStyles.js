@@ -6,7 +6,7 @@ const HEIGHT = Dimensions.get('window').height;
 const styles = StyleSheet.create({
     container: {
         paddingHorizontal: 16,
-        paddingVertical: 16,
+        paddingBottom: 16,
         backgroundColor: '#EEE',
     },
     title: {

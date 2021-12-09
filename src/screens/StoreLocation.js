@@ -23,23 +23,23 @@ export default function StoreLocation({item, index}) {
       }, []);
 
     const ListHeader = () => (
-            <View>
-                <View style={{backgroundColor: '#FFF', flexDirection: 'row',}}>
-                    <View>
-                        <Ionicons name="search-outline" size={20} color="#000" style={styles.icon} />
-                        <TextInput
-                            style={styles.input}
-                            placeholder="Tìm kiếm"
-                        />
-                    </View>
-                    <TouchableOpacity style={styles.btnMap}>
-                        <Ionicons name="map-outline" size={20} color="#000" style={styles.iconMap} />
-                        <Text style={styles.txtMap}>Bản đồ</Text>
-                    </TouchableOpacity>
+        <View>
+            <View style={{backgroundColor: '#e9d8a6', flexDirection: 'row',}}>
+                <View>
+                    <Ionicons name="search-outline" size={20} color="#000" style={styles.icon} />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Tìm kiếm"
+                    />
                 </View>
-                <Text style={styles.titleContent}>Các cửa hàng khác</Text>
+                <TouchableOpacity style={styles.btnMap}>
+                    <Ionicons name="map-outline" size={20} color="#000" style={styles.iconMap} />
+                    <Text style={styles.txtMap}>Bản đồ</Text>
+                </TouchableOpacity>
             </View>
-        )
+            <Text style={styles.titleContent}>Các cửa hàng khác</Text>
+        </View>
+    )
 
     const renderItem = ({ item }) => (
         <View>

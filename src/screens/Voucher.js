@@ -1,6 +1,6 @@
 import React from 'react'
 import { Image, FlatList, View, Text, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
-
+import { useNavigation, useRoute } from '@react-navigation/native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import styles from '../styles/VoucherStyles'
 import CodeUsers from '../components/CodeUsers'
@@ -41,10 +41,17 @@ const voucherList = [
 
 export default function Voucher() {
 
+    const navigation = useNavigation()
+    const moveToCodeUsers = () => () => navigation.navigate('CodeUsers')
+    
     const ListHeader = () => (
         <View>
             <View style={styles.codeView}>
-                <CodeUsers/>
+                <TouchableOpacity
+                onPress={moveToCodeUsers}
+                >
+                    <CodeUsers/>
+                </TouchableOpacity>
             </View>
 
             <View style={styles.btnGroup}>

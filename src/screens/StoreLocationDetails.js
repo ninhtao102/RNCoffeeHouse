@@ -22,32 +22,32 @@ export default function StoreLocationDetails({navigation, route}) {
                     <Text style={{fontSize: 12}}>Giờ mở cửa: {data?.open_time}</Text>
                 </View>
                 <View style={{margin: 16}}>
-                    <View style={styles.info}>
+                    <TouchableOpacity style={styles.info}>
                         <Ionicons name="navigate-outline" size={20} color="#000" style={styles.icon} />
                         <Text
                             style={styles.infoStore}
                             numberOfLines={2}
                             ellipsizeMode= 'tail'
                         >{data?.full_address}</Text>
-                    </View>
-                    <View style={styles.info}>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.info}>
                         <Ionicons name="heart-outline" size={20} color="#000" style={styles.icon} />
                         <Text
                             style={styles.infoStore}
                         >Thêm vào danh sách yêu thích</Text>
-                    </View>
-                    <View style={styles.info}>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.info}>
                         <Ionicons name="call" size={20} color="#000" style={styles.icon} />
                         <Text
                             style={styles.infoStore}
-                        >Liên hệ</Text>
-                    </View>
-                    <View style={styles.info}>
+                        >Liên hệ: {data?.phone}</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.info}>
                         <Ionicons name="arrow-redo-outline" size={20} color="#000" style={styles.icon} />
                         <Text
                             style={styles.infoStore}
                         >Chia sẻ với bạn bè</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
 
                 <TouchableOpacity

@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react'
-import { Dimensions, Image, View, Text, TextInput, TouchableOpacity, SafeAreaView, ScrollView, StyleSheet } from 'react-native'
+import { Dimensions, Image, View, Text, TouchableOpacity, SafeAreaView, ScrollView, StyleSheet } from 'react-native'
 import axios from 'axios'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import { conditionalExpression } from '@babel/types'
 import ListItem from '../components/ListItem'
 
-const WIDTH = Dimensions.get('window').width;
+const WIDTH = Dimensions.get('window').width
 
 export default function Booking({navigation}) {
 
