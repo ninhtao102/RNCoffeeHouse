@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Image, FlatList, View, Text, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import styles from '../styles/VoucherStyles'
+import axios from 'axios'
+
 import CodeUsers from '../components/CodeUsers'
 import EndowList from '../components/EndowList'
 
@@ -43,6 +45,27 @@ export default function Voucher() {
 
     const navigation = useNavigation()
     const moveToCodeUsers = () => () => navigation.navigate('CodeUsers')
+
+    const [data, useData] = useState([]);
+    const [isLoading, useIsLoading] = useState(true);
+    useEffect(() => {
+        axios.post('https://api.thecoffeehouse.com/api/v5/coupon/dashboard',
+        {"body":data},
+        {
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'TCH-DEVICE-ID': '7054bf0b-3da3-43ac-b568-7077e92d717f',
+                'TCH-APP-VERSION': '5.3.0'
+              },
+        })
+          .then(({ data }) => {
+            console.log("data", data.results)
+            useData(data.results)
+          })
+          .catch((error) => console.error(error))
+          .finally(() => useIsLoading(false));
+      }, []);
     
     const ListHeader = () => (
         <View>

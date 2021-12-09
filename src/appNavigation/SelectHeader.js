@@ -7,58 +7,58 @@ const WIDTH = Dimensions.get('window').width
 export default function SelectHeader() {
     return (
         <View style={styles.header}>
-            <TouchableOpacity style={styles.btnMap}>
+            <TouchableOpacity style={styles.name}>
                 <Image source={require('../images/application.png')} style={styles.image} />
-                <Text>Danh mục</Text>
-                <Ionicons name="chevron-up-outline" size={20} color="#000" style={styles.iconMap} />
+                <Text style={styles.tittle}>Danh mục</Text>
+                <Ionicons name="chevron-up-outline" size={20} color="#000" style={styles.icon} />
             </TouchableOpacity>
-            <View>
-                <Ionicons name="search-outline" size={20} color="#000" style={styles.icon} />
+            <View style={{flexDirection: 'row'}}>
+                <TouchableOpacity style={styles.button}>
+                    <Ionicons name="search-outline" size={24} color="#000" />
+                </TouchableOpacity>
+                {/* <Ionicons name="search-outline" size={24} color="#000" /> */}
                 {/* <TextInput
                     style={styles.input}
                     placeholder="Tìm kiếm"
                 /> */}
+                <TouchableOpacity style={styles.button}>
+                    <Ionicons name="heart-outline" size={24} color="#000" />
+                </TouchableOpacity>
             </View>
-            <TouchableOpacity style={styles.btnMap}>
-                <Ionicons name="heart-outline" size={20} color="#000" style={styles.iconMap} />
-            </TouchableOpacity>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     header: {
-        backgroundColor: '#e9d8a6', 
+        paddingHorizontal: 8,
+        backgroundColor: '#FFF', 
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    name: {
+        paddingVertical: 12,
+        paddingHorizontal: 8,
         flexDirection: 'row',
     },
     image: {
+        marginVertical: 4,
         width: 16,
         height: 16,
     },
-    input: {
-        paddingLeft: 42,
-        marginBottom: 16,
-        marginHorizontal: 16,
-        width: WIDTH*0.7,
-        height: 40,
-        backgroundColor: '#FFF',
-        borderRadius: 10,
+    tittle: {
+        marginHorizontal: 8,
+        color: '#000',
+        fontSize: 18,
+        fontWeight: 'bold',
+        // textAlignVertical: 'center'
     },
     icon: {
-        top: 30,
-        left: 30,
-        zIndex: 1,
+        marginVertical: 2,
     },
-    btnMap: {
-        padding: 16,
+    button: {
+        paddingHorizontal: 8,
+        paddingVertical: 12,
         flexDirection: 'row',
-        top: 15,
-        left: -15,
-    },
-    txtMap: {
-        margin: 2,
-        paddingLeft: 5,
-        color: '#000',
-        fontWeight: 'bold',
     },
 })

@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Image, View, TouchableOpacity, Text } from 'react-native'
-
+import { useNavigation, useRoute } from '@react-navigation/native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import styles from '../styles/HomeStyles'
+import axios from 'axios'
 
 const DATA = [
     {
@@ -56,6 +57,27 @@ const DATA = [
 ]
 
 export default function BannerList() {
+
+    const [data, useData] = useState([]);
+    const [isLoading, useIsLoading] = useState(true);
+    // useEffect(() => {
+    //     axios.get('https://api.thecoffeehouse.com/api/v5/news/newsfeed',
+    //     {"body":data},
+    //     {
+    //         headers: {
+    //             Accept: 'application/json',
+    //             'Content-Type': 'application/json',
+    //             'TCH-DEVICE-ID': '7054bf0b-3da3-43ac-b568-7077e92d717f',
+    //             'TCH-APP-VERSION': '5.3.0'
+    //           },
+    //     })
+    //       .then(({ data }) => {
+    //         console.log("data", data.news)
+    //         useData(data.news)
+    //       })
+    //       .catch((error) => console.error(error))
+    //       .finally(() => useIsLoading(false));
+    //   }, []);
 
     return (
         <View style={styles.banner}>

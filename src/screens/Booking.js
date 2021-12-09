@@ -69,14 +69,18 @@ export default function Booking({navigation}) {
 
 const styles = StyleSheet.create({
     menu: {
+        paddingVertical: 8,
+        paddingHorizontal: 16,
         flexDirection:'row', 
         flexWrap:'wrap',
-        justifyContent:'space-between'
+        justifyContent:'space-between',
+        backgroundColor: '#FFF'
     },
     category: {
-        margin: 4
+        // margin: 4,
     },
     thumbnail: {
+        marginVertical: 4,
         alignSelf: 'center',
         width:"80%",
         height:WIDTH*0.2*0.8
