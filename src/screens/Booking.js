@@ -1,12 +1,19 @@
 import React, {useEffect, useState} from 'react'
-import { Dimensions, Image, View, Text, TouchableOpacity, SafeAreaView, ScrollView, StyleSheet } from 'react-native'
-import axios from 'axios'
+import { Dimensions, Image, View, Text, TextInput, TouchableOpacity, SafeAreaView, ScrollView, StyleSheet } from 'react-native'
+import { useSelector, useDispatch } from "react-redux"
 import { conditionalExpression } from '@babel/types'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 import ListItem from '../components/ListItem'
+import axios from 'axios'
 
 const WIDTH = Dimensions.get('window').width
 
 export default function Booking({navigation}) {
+
+    const dispatch = useDispatch()
+    const onSendNameToStore = () => {
+        dispatch({ type: "SEND_FROM_GIRL_FRIEND1", data: "black socola" })
+    }
 
     // const [data, useData] = useState([]);
     // const [isLoading, useIsLoading] = useState(true);
@@ -36,13 +43,29 @@ export default function Booking({navigation}) {
     return (
         <SafeAreaView>
             <ScrollView>
+                <View style={styles.header}>
+                    <TouchableOpacity style={styles.category}>
+                        <Image source={require('../images/application.png')} style={styles.image} />
+                    </TouchableOpacity>
+                    <View style={styles.text_input}>
+                        <Ionicons name="search-outline" size={18} color="#000" style={styles.search_icon} />
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Tìm kiếm"
+                        />
+                    </View>
+                    <TouchableOpacity style={styles.button}>
+                        <Ionicons name="heart-outline" size={18} color="#000" />
+                    </TouchableOpacity>
+                </View>
+
                 <View style={styles.menu}>
                     {
                         data.map((item, index) => {
                         return (
-                            <TouchableOpacity key={index} style={styles.category}>
+                            <TouchableOpacity key={index}>
                                 <Image style={styles.thumbnail} source={{uri : item?.thumbnail}} />
-                                <Text numberOfLines={3} style={styles.categoryTitle} >{item?.name}</Text>
+                                <Text numberOfLines={2} style={styles.categoryTitle} >{item?.name}</Text>
                             </TouchableOpacity>
                         )
                         })
@@ -68,6 +91,56 @@ export default function Booking({navigation}) {
 }
 
 const styles = StyleSheet.create({
+    header: {
+        paddingHorizontal: 16,
+        backgroundColor: '#e9d8a6', 
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    category: {
+        marginVertical: 8,
+        padding: 8,
+        width: 32,
+        backgroundColor: '#FFF',
+        borderRadius: 32
+    },
+    image: {
+        width: 16,
+        height: 16,
+    },
+    text_input: {
+        marginVertical: 8,
+        paddingHorizontal: 8,
+        height: 32,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        backgroundColor: '#FFF',
+        borderRadius: 16
+    },
+    search_icon: {
+        alignSelf: 'center',
+    },
+    input: {
+        width: WIDTH*0.6,
+        height: 36,
+    },
+    tittle: {
+        marginHorizontal: 8,
+        color: '#000',
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    icon: {
+        marginVertical: 2,
+    },
+    button: {
+        marginVertical: 8,
+        padding: 6,
+        flexDirection: 'row',
+        alignSelf: 'center',
+        backgroundColor: '#FFF',
+        borderRadius: 24,
+    },
     menu: {
         paddingVertical: 8,
         paddingHorizontal: 16,
@@ -75,9 +148,6 @@ const styles = StyleSheet.create({
         flexWrap:'wrap',
         justifyContent:'space-between',
         backgroundColor: '#FFF'
-    },
-    category: {
-        // margin: 4,
     },
     thumbnail: {
         marginVertical: 4,
