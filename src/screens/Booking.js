@@ -9,10 +9,10 @@ import axios from 'axios'
 const WIDTH = Dimensions.get('window').width
 
 export default function Booking({navigation}) {
-
+    const [text, onChangeText] = React.useState("useless text")
     const dispatch = useDispatch()
     const onSendNameToStore = () => {
-        dispatch({ type: "SEND_FROM_GIRL_FRIEND1", data: "black socola" })
+        dispatch({ type: "SEND_FROM_GIRL_FRIEND1", data: text })
     }
 
     // const [data, useData] = useState([]);
@@ -42,7 +42,7 @@ export default function Booking({navigation}) {
     
     return (
         <SafeAreaView>
-            <ScrollView>
+            <ScrollView style={{backgroundColor: '#FFF'}}>
                 <View style={styles.header}>
                     <TouchableOpacity style={styles.category}>
                         <Image source={require('../images/application.png')} style={styles.image} />
@@ -51,10 +51,12 @@ export default function Booking({navigation}) {
                         <Ionicons name="search-outline" size={18} color="#000" style={styles.search_icon} />
                         <TextInput
                             style={styles.input}
-                            placeholder="Tìm kiếm"
+                            // placeholder="Tìm kiếm"
+                            onChangeText={onChangeText}
+                            value={text}
                         />
                     </View>
-                    <TouchableOpacity style={styles.button}>
+                    <TouchableOpacity style={styles.button} onPress={onSendNameToStore}>
                         <Ionicons name="heart-outline" size={18} color="#000" />
                     </TouchableOpacity>
                 </View>
