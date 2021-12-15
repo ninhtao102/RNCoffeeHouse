@@ -1,12 +1,17 @@
 import React from 'react'
 import { Dimensions, View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
+import { useSelector, useDispatch } from "react-redux"
 
 const WIDTH = Dimensions.get('window').width;
 
 export function ItemProduct({item, index}) {
     const navigation = useNavigation();
+    const dispatch = useDispatch();
     const moveToDetail = (item) => () => navigation.navigate('ProductDetail', { data: item })
+    const onAddCart = () => {
+        dispatch({ type: "ADD_TO_CART", data: { ...data, quantity: 1 } }); // gui action toi reducer
+    }
     return(
         <TouchableOpacity key={index} style={styles.itemBox} onPress={moveToDetail(item)}>
             <Image source={{uri: item?.images?.[0]}} style={styles.itemImage} />
@@ -16,7 +21,9 @@ export function ItemProduct({item, index}) {
                     <Text numberOfLines={2} style={styles.itemIntro}>{item?.description}</Text>
                     <Text style={styles.itemPrice}>{item?.base_price}đ</Text>
                 </View>
-                <TouchableOpacity>
+                <TouchableOpacity
+                onPress={onAddCart}
+                >
                     <Text style={styles.addCart}>+</Text>
                 </TouchableOpacity>
             </View>

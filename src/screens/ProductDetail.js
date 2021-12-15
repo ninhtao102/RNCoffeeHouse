@@ -9,7 +9,7 @@ const HEIGHT = Dimensions.get("window").height
 export default function ProductDetail({navigation, route}) {
 
     const { data } = route.params;
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const [priceDetail, setPriceDetail] = useState(data?.price)
     const [quantity, setQuantity] = useState(1)
@@ -19,9 +19,9 @@ export default function ProductDetail({navigation, route}) {
         setTotal(priceDetail * quantity) 
     }, [quantity]);
 
-    // const onAddCart = () => {
-    //     dispatch({ type: "ADD_TO_CART", data: { ...data, quantity: quantity } });
-    // }
+    const onAddCart = () => {
+        dispatch({ type: "ADD_TO_CART", data: { ...data, quantity: quantity } });
+    }
 
     return (
         <View style={styles.container}>
@@ -97,7 +97,7 @@ export default function ProductDetail({navigation, route}) {
                     >
                         <Text 
                         style={styles.add_cart} 
-                        // onPress={onAddCart}
+                        onPress={onAddCart}
                         >Chọn • đ</Text>
                     </TouchableOpacity>
                 </View>
@@ -117,12 +117,12 @@ const styles = StyleSheet.create({
     },
     image: {
         width: WIDTH*0.8,
-        height: HEIGHT*0.4,
+        height: WIDTH,
         resizeMode: 'contain',
     },
     imageSingle: {
         width: WIDTH,
-        height: HEIGHT*0.4,
+        height: WIDTH,
         resizeMode: 'contain',
     },
     product_name: {

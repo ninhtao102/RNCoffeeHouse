@@ -7,7 +7,7 @@ export default function Cart() {
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
-                <View style={styles.header}>
+                {/* <View style={styles.header}>
                     <TouchableOpacity>
                         <Text>Xóa</Text>
                     </TouchableOpacity>
@@ -15,7 +15,7 @@ export default function Cart() {
                     <TouchableOpacity>
                         <Ionicons name="close-outline" size={20} color="#000" />
                     </TouchableOpacity>
-                </View>
+                </View> */}
 
                 <View style={styles.content}>
                     <View style={styles.headerContent}>
